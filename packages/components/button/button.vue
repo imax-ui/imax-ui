@@ -10,7 +10,7 @@
         'imax__button--long': long
       }
     ]"
-    disabled>
+    :disabled="disabled">
     <i v-if="showIcon" :class="icon" class="imax-icon"></i>
     <span>
       <slot></slot>
