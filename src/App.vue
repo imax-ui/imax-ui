@@ -14,6 +14,13 @@
         <div>asd</div>
       </iRow>
     </div>
+    <div>
+      <i-row>
+        <i-col :col="8">
+          asdsad
+        </i-col>
+      </i-row>
+    </div>
   </div>
 </template>
 
