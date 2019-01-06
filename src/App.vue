@@ -1,28 +1,16 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <iButton type="primary" :circle="true" icon="imax-icon-camera" :long="true" :disabled="true">按钮</iButton>
+    <iButton type="danger">按钮</iButton>
+    <iButton type="info" size="mini">按钮</iButton>
+    <iButton type="warning" size="large" :circle="true">按钮</iButton>
+    <iButton type="success" size="small" :circle="true">按钮</iButton>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
+  name: 'app'
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

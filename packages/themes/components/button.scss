@@ -1,0 +1,110 @@
+/*
+ * author: choo
+ * button style
+ **/
+
+.imax__button {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  vertical-align: middle;
+  background: rgb(233, 233, 233);
+  border: 1px solid #dcdfe6;
+  border-color: #dcdfe6;
+  color: #606266;
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: .1s;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  padding: 12px 20px;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 6px 15px;
+}
+
+/* Colors
+-------------------------- */
+.imax__button--primary {
+  background-color: $color-primary;
+  color: #fff;
+  border-color: $color-primary;
+}
+
+
+.imax__button--success {
+  background-color: $color-success;
+  color: #fff;
+  border-color: $color-success;
+}
+
+.imax__button--warning {
+  background-color: $color-warning;
+  color: #fff;
+  border-color: $color-warning;
+}
+
+.imax__button--danger {
+  background-color: $color-danger;
+  color: #fff;
+  border-color: $color-danger;
+}
+
+.imax__button--info {
+  background-color: $color-info;
+  color: #fff;
+  border-color: $color-info;
+}
+
+/* Size
+-------------------------- */
+.imax__button--size-large {
+  padding: 6px 15px 7px;
+  font-size: 14px;
+}
+
+.imax__button--size-small {
+  padding: 4px 7px;
+}
+
+.imax__button--size-mini {
+  padding: 2px 5px;
+}
+
+/* Circle
+-------------------------- */
+.imax__button--circle {
+  border-radius: 30px;
+}
+
+/* icon
+-------------------------- */
+.imax-icon {
+  font-size: 14px;
+  vertical-align: text-bottom;
+}
+
+.imax-icon + span {
+  margin-left: 4px;
+}
+
+/* long
+-------------------------- */
+.imax__button--long {
+  width: 100%;
+  font-size: 14px;
+}
+
+/* disabled
+-------------------------- */
+.imax__button[disabled] {
+  color: #c3cbd6;
+  background-color: #f7f7f7;
+  border-color: #d7dde4;
+  cursor: not-allowed;
+}

@@ -1,4 +1,4 @@
-# uin-ui
+# imax-ui
 
 ## Project setup
 ```

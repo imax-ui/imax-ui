@@ -1,0 +1,107 @@
+@font-face {
+  font-family: 'imax-icon';
+  src:  url('fonts/imax-icon.eot?8w7gzf');
+  src:  url('fonts/imax-icon.eot?8w7gzf#iefix') format('embedded-opentype'),
+    url('fonts/imax-icon.ttf?8w7gzf') format('truetype'),
+    url('fonts/imax-icon.woff?8w7gzf') format('woff'),
+    url('fonts/imax-icon.svg?8w7gzf#imax-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="imax-icon-"], [class*=" imax-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'imax-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.imax-icon-camera:before {
+  content: "\e900";
+}
+.imax-icon-close:before {
+  content: "\e901";
+}
+.imax-icon-collection:before {
+  content: "\e902";
+}
+.imax-icon-coordinates:before {
+  content: "\e903";
+}
+.imax-icon-delete:before {
+  content: "\e904";
+}
+.imax-icon-enter:before {
+  content: "\e905";
+}
+.imax-icon-fullscreen:before {
+  content: "\e906";
+}
+.imax-icon-like:before {
+  content: "\e907";
+}
+.imax-icon-narrow:before {
+  content: "\e908";
+}
+.imax-icon-other:before {
+  content: "\e909";
+}
+.imax-icon-refresh:before {
+  content: "\e90a";
+}
+.imax-icon-return:before {
+  content: "\e90b";
+}
+.imax-icon-search:before {
+  content: "\e90c";
+}
+.imax-icon-send:before {
+  content: "\e90d";
+}
+.imax-icon-setup:before {
+  content: "\e90e";
+}
+.imax-icon-share:before {
+  content: "\e90f";
+}
+.imax-icon-success:before {
+  content: "\e910";
+}
+.imax-icon-suspend:before {
+  content: "\e911";
+}
+.imax-icon-switch:before {
+  content: "\e912";
+}
+.imax-icon-systemprompt:before {
+  content: "\e913";
+}
+.imax-icon-text:before {
+  content: "\e914";
+}
+.imax-icon-time:before {
+  content: "\e915";
+}
+.imax-icon-translation:before {
+  content: "\e916";
+}
+.imax-icon-trash:before {
+  content: "\e917";
+}
+.imax-icon-undo:before {
+  content: "\e918";
+}
+.imax-icon-unfold:before {
+  content: "\e919";
+}
+.imax-icon-packup:before {
+  content: "\e91a";
+}
