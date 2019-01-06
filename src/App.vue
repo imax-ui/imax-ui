@@ -8,6 +8,12 @@
     <div>
       <icon type="camera" color="#ccc" size="18px"/>
     </div>
+    <div>
+      <iRow justify="space-around">
+        <div>asd</div>
+        <div>asd</div>
+      </iRow>
+    </div>
   </div>
 </template>
 

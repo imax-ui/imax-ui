@@ -5,10 +5,12 @@
 import './themes/index.scss';
 import IButton from './components/button';
 import Icon from './components/icon';
+import IRow from './components/row';
 
 const components = [
   IButton,
-  Icon
+  Icon,
+  IRow
 ];
 
 const install = function(Vue) {
@@ -21,5 +23,6 @@ const install = function(Vue) {
 export default {
   install, 
   IButton,
-  Icon
+  Icon,
+  IRow
 };

@@ -1,0 +1,48 @@
+/*
+ * author: choo
+ * row style
+ **/
+
+ .imax__row {
+  display: flex;
+}
+
+/* justify
+-------------------------- */
+.imax__row--justify-end {
+  justify-content: flex-end;
+}
+
+.imax__row--justify-center {
+  justify-content: center;
+}
+
+.imax__row--justify-end {
+  justify-content: flex-end;
+}
+
+.imax__row--justify-space-between {
+  justify-content: space-between;
+}
+
+.imax__row--justify-space-around {
+  justify-content: space-around;
+}
+
+/* align
+-------------------------- */
+.imax__row--align-end {
+  align-items: flex-end;
+}
+
+.imax__row--align-center {
+  align-items: center;
+}
+
+.imax__row--align-baseline {
+  align-items: baseline;
+}
+
+.imax__row--align-stretch {
+  align-items: stretch;
+}
