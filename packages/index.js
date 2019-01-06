@@ -4,9 +4,11 @@
  */
 import './themes/index.scss';
 import IButton from './components/button';
+import Icon from './components/icon';
 
 const components = [
-  IButton
+  IButton,
+  Icon
 ];
 
 const install = function(Vue) {
@@ -18,5 +20,6 @@ const install = function(Vue) {
 
 export default {
   install, 
-  IButton
+  IButton,
+  Icon
 };

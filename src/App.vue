@@ -5,6 +5,9 @@
     <iButton type="info" size="mini">按钮</iButton>
     <iButton type="warning" size="large" :circle="true">按钮</iButton>
     <iButton type="success" size="small" :circle="true">按钮</iButton>
+    <div>
+      <icon type="camera" color="#ccc" size="18px"/>
+    </div>
   </div>
 </template>
 
