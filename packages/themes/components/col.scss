@@ -6,6 +6,7 @@
 @function size($n) {
   @return ($n/24) * 100;
 }
+
 /* col
 -------------------------- */
 .imax__col--1 {
@@ -102,4 +103,102 @@
 
 .imax__col--24 {
   width: size(24%);
+};
+
+/* offset
+-------------------------- */
+.imax__col--offset-1 {
+  margin-left: size(1%);
+};
+
+.imax__col--offset-2 {
+  margin-left: size(2%);
+};
+
+.imax__col--offset-3 {
+  margin-left: size(3%);
+};
+
+.imax__col--offset-4 {
+  margin-left: size(4%);
+};
+
+.imax__col--offset-5 {
+  margin-left: size(5%);
+};
+
+.imax__col--offset-6 {
+  margin-left: size(6%);
+};
+
+.imax__col--offset-7 {
+  margin-left: size(7%);
+};
+
+.imax__col--offset-8 {
+  margin-left: size(8%);
+};
+
+.imax__col--offset-9 {
+  margin-left: size(9%);
+};
+
+.imax__col--offset-10 {
+  margin-left: size(10%);
+};
+
+.imax__col--offset-11 {
+  margin-left: size(11%);
+};
+
+.imax__col--offset-12 {
+  margin-left: size(12%);
+};
+
+.imax__col--offset-13 {
+  margin-left: size(13%);
+};
+
+.imax__col--offset-14 {
+  margin-left: size(14%);
+};
+
+.imax__col--offset-15 {
+  margin-left: size(15%);
+};
+
+.imax__col--offset-16 {
+  margin-left: size(16%);
+};
+
+.imax__col--offset-17 {
+  margin-left: size(17%);
+};
+
+.imax__col--offset-18 {
+  margin-left: size(18%);
+};
+
+.imax__col--offset-19 {
+  margin-left: size(19%);
+};
+
+.imax__col--offset-20 {
+  margin-left: size(20%);
+};
+
+.imax__col--offset-21 {
+  margin-left: size(21%);
+};
+
+.imax__col--offset-22 {
+  margin-left: size(22%);
+};
+
+.imax__col--offset-23 {
+  margin-left: size(23%);
+};
+
+.imax__col--offset-24 {
+  margin-left: size(24%);
 };

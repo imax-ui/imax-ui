@@ -16,7 +16,7 @@
     </div>
     <div>
       <i-row>
-        <i-col :col="8">
+        <i-col :col="8" :offset="1">
           asdsad
         </i-col>
       </i-row>
