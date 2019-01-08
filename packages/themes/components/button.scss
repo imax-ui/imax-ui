@@ -4,36 +4,42 @@
  **/
 
 .imax__button {
-  display: inline-block;
-  line-height: 1;
-  white-space: nowrap;
-  cursor: pointer;
-  vertical-align: middle;
-  background: rgb(233, 233, 233);
-  border: 1px solid #dcdfe6;
-  border-color: #dcdfe6;
-  color: #606266;
-  -webkit-appearance: none;
-  text-align: center;
-  box-sizing: border-box;
+  border: none;
   outline: none;
-  margin: 0;
-  transition: .1s;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  padding: 12px 20px;
-  font-size: 12px;
+  padding: 8px 15px;
+  font-family: inherit;
+  display: inline-block;
   border-radius: 4px;
-  padding: 6px 15px;
+  color: inherit;
+  font-size: 13px;
+  line-height: 1;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all .1s;
+  background-color: transparent;
+  border: 1px solid #d3d3d3;
+  background-color: #fff;
+  vertical-align: middle;
+  box-shadow: 0 1px 1px 0 #eee;
 }
 
 /* Colors
 -------------------------- */
+
+.imax__button--default {
+  &:hover {
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+}
+
 .imax__button--primary {
   background-color: $color-primary;
   color: #fff;
   border-color: $color-primary;
+  &:hover {
+    opacity: .8;
+  }
 }
 
 
@@ -41,35 +47,47 @@
   background-color: $color-success;
   color: #fff;
   border-color: $color-success;
+  &:hover {
+    opacity: .8;
+  }
 }
 
 .imax__button--warning {
   background-color: $color-warning;
   color: #fff;
   border-color: $color-warning;
+  &:hover {
+    opacity: .8;
+  }
 }
 
 .imax__button--danger {
   background-color: $color-danger;
   color: #fff;
   border-color: $color-danger;
+  &:hover {
+    opacity: .8;
+  }
 }
 
 .imax__button--info {
   background-color: $color-info;
   color: #fff;
   border-color: $color-info;
+  &:hover {
+    opacity: .8;
+  }
 }
 
 /* Size
 -------------------------- */
 .imax__button--size-large {
-  padding: 6px 15px 7px;
+  padding: 10px 20px;
   font-size: 14px;
 }
 
 .imax__button--size-small {
-  padding: 4px 7px;
+  padding: 5px 10px;
 }
 
 .imax__button--size-mini {
@@ -87,10 +105,12 @@
 .imax-icon {
   font-size: 14px;
   vertical-align: text-bottom;
+  vertical-align: middle;
 }
 
 .imax-icon + span {
   margin-left: 4px;
+  vertical-align: middle;
 }
 
 /* long
