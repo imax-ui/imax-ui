@@ -1,0 +1,27 @@
+/*
+ * author: choo
+ * button style
+ **/
+
+ .imax__button--group {
+  display: flex;
+  vertical-align: middle;
+  .imax__button {
+    &:not(:first-child) {
+      border-radius: 0px;
+    }
+    &:not(:last-child) {
+      border-radius: 0px;
+    }
+  }
+  .imax__button {
+    &:first-child {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    &:last-child {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+}

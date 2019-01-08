@@ -4,12 +4,14 @@
  */
 import './themes/index.scss';
 import IButton from './components/button';
+import IButtonGroup from './components/button-group';
 import Icon from './components/icon';
 import IRow from './components/row';
 import ICol from './components/col';
 
 const components = [
   IButton,
+  IButtonGroup,
   Icon,
   IRow,
   ICol
@@ -25,6 +27,7 @@ const install = function(Vue) {
 export default {
   install, 
   IButton,
+  IButtonGroup,
   Icon,
   IRow,
   ICol

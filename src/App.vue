@@ -21,6 +21,13 @@
         </i-col>
       </i-row>
     </div>
+    <div>
+      <i-button-group>
+        <iButton type="primary">按钮</iButton>
+        <iButton type="danger">按钮</iButton>
+        <iButton type="success">按钮</iButton>
+      </i-button-group>
+    </div>
   </div>
 </template>
 
