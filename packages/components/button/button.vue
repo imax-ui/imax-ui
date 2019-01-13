@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'iButton',
+  name: 'i-button',
   props: {
     type: {
       type: String,

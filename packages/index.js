@@ -8,13 +8,15 @@ import IButtonGroup from './components/button-group';
 import Icon from './components/icon';
 import IRow from './components/row';
 import ICol from './components/col';
+import Input from './components/input';
 
 const components = [
   IButton,
   IButtonGroup,
   Icon,
   IRow,
-  ICol
+  ICol,
+  Input
 ];
 
 const install = function(Vue) {
@@ -30,5 +32,6 @@ export default {
   IButtonGroup,
   Icon,
   IRow,
-  ICol
+  ICol,
+  Input
 };

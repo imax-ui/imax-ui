@@ -3,6 +3,7 @@ node_modules
 dist
 /dist
 .history
+imax-ui (v1.0.0).xmind
 
 # local env files
 .env.local
