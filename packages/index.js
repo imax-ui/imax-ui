@@ -3,20 +3,22 @@
  * Date: 19/01/04
  */
 import './themes/index.scss';
-import IButton from './components/button';
-import IButtonGroup from './components/button-group';
+import Button from './components/button';
+import ButtonGroup from './components/button-group';
 import Icon from './components/icon';
-import IRow from './components/row';
-import ICol from './components/col';
+import Row from './components/row';
+import Col from './components/col';
 import Input from './components/input';
+import Textarea from './components/textarea';
 
 const components = [
-  IButton,
-  IButtonGroup,
+  Button,
+  ButtonGroup,
   Icon,
-  IRow,
-  ICol,
-  Input
+  Row,
+  Col,
+  Input,
+  Textarea
 ];
 
 const install = function(Vue) {
@@ -28,10 +30,11 @@ const install = function(Vue) {
 
 export default {
   install, 
-  IButton,
-  IButtonGroup,
+  Button,
+  ButtonGroup,
   Icon,
-  IRow,
-  ICol,
-  Input
+  Row,
+  Col,
+  Input,
+  Textarea
 };
