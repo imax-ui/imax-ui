@@ -31,6 +31,9 @@
     <div class="group">
       <i-input :value="inputModel" prefix-icon="camera" suffix-icon="camera" type="text" />
     </div>
+    <div class="group">
+      <i-textarea />
+    </div>
   </div>
 </template>
 
@@ -40,7 +43,7 @@ export default {
   name: 'app',
   data() {
     return {
-      inputModel: 'asd'
+      inputModel: ''
     }
   }
 }
