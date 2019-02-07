@@ -7,7 +7,8 @@
       `imax__button--size-${size}`,
       {
         'imax__button--circle': circle,
-        'imax__button--long': long
+        'imax__button--long': long,
+        'imax__button--disabled': disabled
       }
     ]"
     :disabled="disabled">
