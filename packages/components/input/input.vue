@@ -17,7 +17,6 @@
           'imax__input--disabled': disabled
         }
       ]"
-      :type="type"
       :placeholder="placeholder"
       :disabled="disabled"
       @input="handleInput"
@@ -36,10 +35,6 @@ export default {
     value: {
       type: String,
       default: ''
-    },
-    type: {
-      type: String,
-      default: 'text'
     },
     size: {
       type: String

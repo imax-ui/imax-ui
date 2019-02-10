@@ -30,6 +30,13 @@
 
 /* disabled
 -------------------------- */
+.imax__input--disabled {
+  color: #c3cbd6;
+  background-color: #f7f7f7;
+  border-color: #d7dde4;
+  cursor: not-allowed;
+}
+
 .imax__input--inner[disabled]{
   color: #c3cbd6;
   background-color: #f7f7f7;

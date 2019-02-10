@@ -29,7 +29,7 @@
       </i-button-group>
     </div>
     <div class="group">
-      <i-input :value="inputModel" prefix-icon="camera" suffix-icon="camera" type="text" />
+      <i-input :value="inputModel" prefix-icon="camera" suffix-icon="camera" />
     </div>
     <div class="group">
       <i-textarea />
