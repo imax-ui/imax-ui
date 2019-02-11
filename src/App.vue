@@ -34,6 +34,10 @@
     <div class="group">
       <i-textarea />
     </div>
+    <div class="group">
+      <i-radio label="测试label1" v-model="radioModel" />
+      <i-radio label="测试label2" v-model="radioModel" />
+    </div>
   </div>
 </template>
 
@@ -43,7 +47,8 @@ export default {
   name: 'app',
   data() {
     return {
-      inputModel: ''
+      inputModel: '',
+      radioModel: ''
     }
   }
 }

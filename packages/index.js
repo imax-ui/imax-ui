@@ -10,6 +10,7 @@ import Row from './components/row';
 import Col from './components/col';
 import Input from './components/input';
 import Textarea from './components/textarea';
+import Radio from './components/radio';
 
 const components = [
   Button,
@@ -18,7 +19,8 @@ const components = [
   Row,
   Col,
   Input,
-  Textarea
+  Textarea,
+  Radio
 ];
 
 const install = function(Vue) {
@@ -36,5 +38,6 @@ export default {
   Row,
   Col,
   Input,
-  Textarea
+  Textarea,
+  Radio
 };
