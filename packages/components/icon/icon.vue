@@ -1,10 +1,13 @@
 <template>
-  <i :class="[`imax-icon-${type}`]" :style="{fontSize, color}"></i>
+  <i
+    :class="[`imax-icon-${type}`]"
+    :style="{fontSize, color}"
+  />
 </template>
 
 <script>
 export default {
-  name: 'i-icon',
+  name: 'Icon',
   props: {
     type: {
       type: String,

@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'i-col',
+  name: 'Col',
   props: {
     tag: {
       type: String,
@@ -11,7 +11,8 @@ export default {
       default: 24
     },
     offset: {
-      type: Number
+      type: Number,
+      default: null
     }
   },
   render (h) {

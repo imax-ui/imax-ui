@@ -1,45 +1,81 @@
 <template>
   <div id="app">
-    <i-button type="primary">按钮</i-button>
-    <i-button type="danger">按钮</i-button>
-    <i-button type="info">按钮</i-button>
-    <i-button type="success">按钮</i-button>
-    <i-button>按钮</i-button>
+    <Button type="primary">
+      按钮
+    </Button>
+    <Button type="danger">
+      按钮
+    </Button>
+    <Button type="info">
+      按钮
+    </Button>
+    <Button type="success">
+      按钮
+    </Button>
+    <Button>按钮</Button>
     <div class="group">
-      <i-icon type="camera" color="#ccc" size="18px"/>
+      <Icon
+        type="camera"
+        color="#ccc"
+        size="18px"
+      />
     </div>
     <div class="group">
-      <i-row justify="space-around">
+      <Row justify="space-around">
         <div>asd</div>
         <div>asd</div>
-      </i-row>
+      </Row>
     </div>
     <div class="group">
-      <i-row>
-        <i-col :col="8" :offset="1">
+      <Row>
+        <!-- <Col :col="8" :offset="1">
           asdsad
-        </i-col>
-      </i-row>
+        </Col> -->
+        <Col />asd</Col>
+      </Row>
     </div>
     <div class="group">
-      <i-button-group>
-        <i-button type="primary">按钮</i-button>
-        <i-button type="danger">按钮</i-button>
-        <i-button type="success">按钮</i-button>
-      </i-button-group>
+      <ButtonGroup>
+        <Button type="primary">
+          按钮
+        </Button>
+        <Button type="danger">
+          按钮
+        </Button>
+        <Button type="success">
+          按钮
+        </Button>
+      </ButtonGroup>
     </div>
     <div class="group">
-      <i-input :value="inputModel" prefix-icon="camera" suffix-icon="camera" />
+      <Input
+        :value="inputModel"
+        prefix-icon="camera"
+        suffix-icon="camera"
+      />
     </div>
     <div class="group">
-      <i-textarea />
+      <Textarea />
     </div>
     <div class="group">
-      <i-radio label="测试label1" v-model="radioModel" />
-      <i-radio label="测试label2" v-model="radioModel" />
+      <Radio
+        v-model="radioModel"
+        label="测试label1"
+      />
+      <Radio
+        v-model="radioModel"
+        label="测试label2"
+      />
     </div>
     <div class="group">
-      <i-checkbox v-model="checkBoxModel">checked</i-checkbox>
+      <Checkbox v-model="checkBoxModel">
+        checked
+      </Checkbox>
+    </div>
+    <div class="group">
+      <Select>
+        <Option />  
+      </Select>
     </div>
   </div>
 </template>
@@ -47,7 +83,7 @@
 <script>
 
 export default {
-  name: 'app',
+  name: 'App',
   data() {
     return {
       inputModel: '',

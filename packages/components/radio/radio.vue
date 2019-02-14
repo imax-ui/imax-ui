@@ -15,26 +15,29 @@
         }
       ]"
     >
-      <span class="imax__radio--inner"></span>
+      <span class="imax__radio--inner" />
       <input 
-        type="radio" 
+        v-model="model" 
+        type="radio"
         :value="label"
         aria-hidden="true"
         tabindex="-1"
-        v-model="model"
         class="imax__radio--inner-input"
-        @change="handleChange">
+        @change="handleChange"
+      >
     </span>
     <span class="imax__radio--label">
-      <slot></slot>
-      <template v-if="!$slots.default">{{ label }}</template>
+      <slot />
+      <template v-if="!$slots.default">
+        {{ label }}
+      </template>
     </span>
   </label>
 </template>
 
 <script>
 export default {
-  name: 'i-radio',
+  name: 'Radio',
   props: {
     value: {
       type: [String, Number],

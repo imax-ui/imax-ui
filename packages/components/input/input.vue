@@ -5,9 +5,13 @@
       'imax__input--prefix': isPrefix,
       'imax__input--suffix': isSuffix,
     }"
-    :style="{ fontSize: inputFontSize }">
-    <div class="imax__input--prefix-inner" v-if="isPrefix">
-      <i :class="[`imax-icon imax-icon-${prefixIcon}`]"></i>
+    :style="{ fontSize: inputFontSize }"
+  >
+    <div
+      v-if="isPrefix"
+      class="imax__input--prefix-inner"
+    >
+      <i :class="[`imax-icon imax-icon-${prefixIcon}`]" />
     </div>
     <input 
       :value="value"
@@ -21,16 +25,20 @@
       :disabled="disabled"
       @input="handleInput"
       @focus="handleFocus"
-      @blur="handleBlur">
-    <div class="imax__input--suffix-inner" v-if="isSuffix">
-      <i :class="[`imax-icon imax-icon-${suffixIcon}`]"></i>
+      @blur="handleBlur"
+    >
+    <div
+      v-if="isSuffix"
+      class="imax__input--suffix-inner"
+    >
+      <i :class="[`imax-icon imax-icon-${suffixIcon}`]" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'i-input',
+  name: 'Input',
   props: {
     value: {
       type: String,

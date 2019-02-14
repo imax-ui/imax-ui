@@ -19,7 +19,7 @@
 </template>
 <script>
 export default {
-  name: 'i-textarea',
+  name: 'Textarea',
   props: {
     value: {
       type: String,

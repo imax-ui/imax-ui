@@ -12,6 +12,8 @@ import Input from './components/input';
 import Textarea from './components/textarea';
 import Radio from './components/radio';
 import CheckBox from './components/check-box';
+import Select from './components/select';
+import Option from './components/option';
 
 const components = [
   Button,
@@ -22,7 +24,9 @@ const components = [
   Input,
   Textarea,
   Radio,
-  CheckBox
+  CheckBox,
+  Select,
+  Option
 ];
 
 const install = function(Vue) {
@@ -42,5 +46,7 @@ export default {
   Input,
   Textarea,
   Radio,
-  CheckBox
+  CheckBox,
+  Select,
+  Option
 };

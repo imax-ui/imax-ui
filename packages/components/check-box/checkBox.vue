@@ -15,25 +15,28 @@
         }
       ]"
     >
-      <span class="imax__checkbox--inner"></span>
+      <span class="imax__checkbox--inner" />
       <input 
+        v-model="model"
         class="imax__checkbox--inner-input"
         type="checkbox"
         :name="name"
         :value="label"
-        v-model="model"
-        @change="handleChange">
+        @change="handleChange"
+      >
     </span>
     <span class="imax__checkbox--label">
-      <slot></slot>
-      <template v-if="!$slots.default">{{ label }}</template>
+      <slot />
+      <template v-if="!$slots.default">
+        {{ label }}
+      </template>
     </span>
   </label>
 </template>
 
 <script>
 export default {
-  name: 'i-checkbox',
+  name: 'Checkbox',
   props: {
     value: {
       type: [String, Number, Boolean],

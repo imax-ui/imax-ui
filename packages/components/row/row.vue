@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'i-row',
+  name: 'Row',
   props: {
     tag: {
       type: String,

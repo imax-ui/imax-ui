@@ -1,6 +1,5 @@
 <template>
   <button
-    @click="$emit('click')"
     class="imax__button"
     :class="[
       `imax__button--${type}`,
@@ -11,17 +10,23 @@
         'imax__button--disabled': disabled
       }
     ]"
-    :disabled="disabled">
-    <i v-if="showIcon" :class="icon" class="imax-icon"></i>
+    :disabled="disabled"
+    @click="$emit('click')"
+  >
+    <i
+      v-if="showIcon"
+      :class="icon"
+      class="imax-icon"
+    />
     <span>
-      <slot></slot>
+      <slot />
     </span>
   </button>
 </template>
 
 <script>
 export default {
-  name: 'i-button',
+  name: 'Button',
   props: {
     type: {
       type: String,
