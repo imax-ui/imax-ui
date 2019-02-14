@@ -38,6 +38,9 @@
       <i-radio label="测试label1" v-model="radioModel" />
       <i-radio label="测试label2" v-model="radioModel" />
     </div>
+    <div class="group">
+      <i-checkbox v-model="checkBoxModel">checked</i-checkbox>
+    </div>
   </div>
 </template>
 
@@ -48,7 +51,8 @@ export default {
   data() {
     return {
       inputModel: '',
-      radioModel: ''
+      radioModel: '',
+      checkBoxModel: false
     }
   }
 }
