@@ -28,9 +28,12 @@
     </div>
     <div class="group">
       <Row>
-        <!-- <Col :col="8" :offset="1">
-          asdsad
-        </Col> -->
+        <Col
+          :col="8"
+          :offset="1"
+        />
+        asdsad
+        </Col>
         <Col />asd</Col>
       </Row>
     </div>
@@ -73,8 +76,15 @@
       </Checkbox>
     </div>
     <div class="group">
-      <Select>
-        <Option />  
+      <Select v-model="selectModel">
+        <Option
+          value="opt1"
+          label="opt1"
+        />
+        <Option
+          value="opt2"
+          label="opt2"
+        />  
       </Select>
     </div>
   </div>
@@ -88,7 +98,8 @@ export default {
     return {
       inputModel: '',
       radioModel: '',
-      checkBoxModel: false
+      checkBoxModel: false,
+      selectModel: ''
     }
   }
 }

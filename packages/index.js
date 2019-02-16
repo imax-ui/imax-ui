@@ -14,6 +14,7 @@ import Radio from './components/radio';
 import CheckBox from './components/check-box';
 import Select from './components/select';
 import Option from './components/option';
+import Dropdown from './components/dropdown';
 
 const components = [
   Button,
@@ -26,7 +27,8 @@ const components = [
   Radio,
   CheckBox,
   Select,
-  Option
+  Option,
+  Dropdown
 ];
 
 const install = function(Vue) {
@@ -48,5 +50,6 @@ export default {
   Radio,
   CheckBox,
   Select,
-  Option
+  Option,
+  Dropdown
 };

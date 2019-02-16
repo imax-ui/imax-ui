@@ -23,6 +23,7 @@
       ]"
       :placeholder="placeholder"
       :disabled="disabled"
+      :readonly="readOnly"
       @input="handleInput"
       @focus="handleFocus"
       @blur="handleBlur"
@@ -31,7 +32,10 @@
       v-if="isSuffix"
       class="imax__input--suffix-inner"
     >
-      <i :class="[`imax-icon imax-icon-${suffixIcon}`]" />
+      <i
+        ref="suffix-icon"
+        :class="[`imax-icon imax-icon-${suffixIcon}`]"
+      />
     </div>
   </div>
 </template>
@@ -45,7 +49,8 @@ export default {
       default: ''
     },
     size: {
-      type: String
+      type: String,
+      default: ''
     },
     placeholder: {
       type: String,
@@ -60,10 +65,21 @@ export default {
       default: false
     },
     prefixIcon: {
-      type: String
+      type: String,
+      default: ''
     },
     suffixIcon: {
-      type: String
+      type: String,
+      default: ''
+    },
+    readOnly: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data() {
+    return {
+      focused: false
     }
   },
   computed: {
@@ -90,9 +106,11 @@ export default {
       this.$emit('input', value);
     },
     handleFocus() {
+      this.focused = true;
       this.$emit('focus');
     },
     handleBlur() {
+      this.focused = false;
       this.$emit('blur');
     }
   }

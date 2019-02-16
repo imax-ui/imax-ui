@@ -1,0 +1,30 @@
+/*
+ * author: choo
+ * dropdown style
+ **/
+
+.imax__dropdown {
+  width: inherit;
+  max-height: 200px;
+  overflow: auto;
+  margin: 5px 0;
+  padding: 5px 0;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 1px 6px rgba(0,0,0,.2);
+  position: absolute;
+  z-index: 900;
+  transition: .25s cubic-bezier(.24,.22,.015,1.56);
+  transition-property: transform,opacity;
+  transform: scale(.8);
+  max-height: 500px;
+  opacity: 0;
+}
+
+/* show
+-------------------------- */
+.is-show {
+  transform: scale(1);
+  opacity: 1;
+}
