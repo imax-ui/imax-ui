@@ -87,6 +87,14 @@
         />  
       </Select>
     </div>
+    <div class="group">
+      <Button
+        type="warn"
+        @click="testMessage"
+      >
+        测试message
+      </Button>
+    </div>
   </div>
 </template>
 
@@ -100,6 +108,11 @@ export default {
       radioModel: '',
       checkBoxModel: false,
       selectModel: ''
+    }
+  },
+  methods: {
+    testMessage() {
+      this.$message('测试哈哈哈');
     }
   }
 }
