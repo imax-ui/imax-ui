@@ -10,7 +10,7 @@
     />
     <Dropdown
       :show="isShowDropdown"
-      :style="{width: inputWidth}"
+      :style="{width: inputWidth, position: 'absolute', left: 0, top: '50px'}"
     >
       <slot />
     </dropdown>
@@ -38,7 +38,7 @@ export default {
       inputWidth: null,
       isShowDropdown: false
     }
-  },  
+  },
   created() {
     this.$on('select', this.change);
   },
@@ -57,20 +57,24 @@ export default {
       })
     },
     handleFocus() {
-      let icon = this.$refs.input.$refs['suffix-icon'];
-      if (icon) {
-        icon.style.transform = 'rotateZ(180deg)';
-      }
-      this.isShowDropdown = true;
-      this.$emit('focus');
+      setTimeout(() => {
+        let icon = this.$refs.input.$refs['suffix-icon'];
+        if (icon) {
+          icon.style.transform = 'rotateZ(180deg)';
+        }
+        this.isShowDropdown = true;
+        this.$emit('focus');
+      }, 100);
     },
     handleBlur() {
-      let icon = this.$refs.input.$refs['suffix-icon'];
-      if (icon) {
-        icon.style.transform = 'rotateZ(0deg)';
-      }
-      this.isShowDropdown = false;
-      this.$emit('blur');
+      setTimeout(() => {
+        let icon = this.$refs.input.$refs['suffix-icon'];
+        if (icon) {
+          icon.style.transform = 'rotateZ(0deg)';
+        }
+        this.isShowDropdown = false;
+        this.$emit('blur');
+      }, 100);
     }
   }
 }
