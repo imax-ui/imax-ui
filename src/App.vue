@@ -15,7 +15,7 @@
     <Button>按钮</Button>
     <div class="group">
       <Icon
-        type="camera"
+        type="icon-camera"
         color="#ccc"
         size="18px"
       />
@@ -53,8 +53,8 @@
     <div class="group">
       <Input
         :value="inputModel"
-        prefix-icon="camera"
-        suffix-icon="camera"
+        prefix-icon="search"
+        suffix-icon="time_fill"
       />
     </div>
     <div class="group">
@@ -99,7 +99,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'App',
   data() {
@@ -112,7 +111,7 @@ export default {
   },
   methods: {
     testMessage() {
-      this.$message('测试哈哈哈');
+      this.$message('测试message');
     }
   }
 }

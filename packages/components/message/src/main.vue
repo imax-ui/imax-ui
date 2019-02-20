@@ -1,11 +1,15 @@
 <template>
-  <div class="imax__message">
-    message
-  </div>
+  <transition name="imax__message-fade">
+    <div class="imax__message">
+      {{ message }}
+    </div>
+  </transition>
 </template>
 
 <script>
 export default {
-
+  data() {
+    message: ''
+  }
 }
 </script>
