@@ -9,7 +9,10 @@
 <script>
 export default {
   data() {
-    message: ''
+    return {
+      message: '',
+      type: ''
+    }
   }
 }
 </script>
