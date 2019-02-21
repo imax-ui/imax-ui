@@ -3,7 +3,7 @@
     <Button type="primary">
       按钮
     </Button>
-    <Button type="danger">
+    <Button type="error">
       按钮
     </Button>
     <Button type="info">
@@ -42,7 +42,7 @@
         <Button type="primary">
           按钮
         </Button>
-        <Button type="danger">
+        <Button type="error">
           按钮
         </Button>
         <Button type="success">
@@ -111,7 +111,10 @@ export default {
   },
   methods: {
     testMessage() {
-      this.$message('测试message');
+      this.$message({
+        type: 'error',
+        message: 'test'
+      });
     }
   }
 }

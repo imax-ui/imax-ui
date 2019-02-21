@@ -61,10 +61,10 @@
   }
 }
 
-.imax__button--danger {
-  background-color: $color-danger;
+.imax__button--error {
+  background-color: $color-error;
   color: #fff;
-  border-color: $color-danger;
+  border-color: $color-error;
   &:hover {
     opacity: .8;
   }

@@ -3,8 +3,8 @@
  * input style
  **/
 
- .imax__message {
-  min-width: 200px;
+.imax__message {
+  min-width: 75px;
   box-sizing: border-box;
   border-radius: 5px;
   border-width: 1px;
@@ -14,17 +14,69 @@
   transform: translateX(-50%);
   transition: opacity 0.3s, transform .4s;
   overflow: hidden;
-  padding: 5px 15px;
+  background-color: #fff;
+  box-shadow: 0px 3px 10px 1px #eee;
+  font-size: 14px;
+}
+
+.imax__message__inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 1px 3px 0px #eee;
-  font-size: 14px;
-  color: #4b4c4d;
- }
+  padding: 10px 6px 10px 30px;
 
-.el-message-fade-enter,
-.el-message-fade-leave-active {
+  .imax-icon {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: $color-primary;
+  }
+
+  .imax__message__content {
+    color: #4b4c4d;
+  }
+}
+
+.imax__message-fade-enter,
+.imax__message-fade-leave-active {
   opacity: 0;
   transform: translate(-50%, -100%);
+}
+
+/* message type
+-------------------------- */
+.imax__message-success {
+  .imax__message__inner {
+    .imax-icon {
+      color: $color-success;
+    }
+    .imax__message__content {
+      color: $color-success;
+    }
+  }
+}
+
+.imax__message-warning {
+  .imax__message__inner {
+    .imax-icon {
+      color: $color-warning;
+    }
+    .imax__message__content {
+      color: $color-warning;
+    }
+  }
+}
+
+.imax__message-error {
+  .imax__message__inner {
+    .imax-icon {
+      color: $color-error;
+    }
+    .imax__message__content {
+      color: $color-error;
+    }
+  }
 }

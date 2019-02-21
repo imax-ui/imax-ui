@@ -11,7 +11,7 @@
       v-if="isPrefix"
       class="imax__input--prefix-inner"
     >
-      <i :class="[`imax-icon iconfont icon-${prefixIcon}`]" />
+      <i :class="[`imax-icon icon-${prefixIcon}`]" />
     </div>
     <input 
       :value="value"
@@ -34,7 +34,7 @@
     >
       <i
         ref="suffix-icon"
-        :class="[`imax-icon iconfont icon-${suffixIcon}`]"
+        :class="[`imax-icon icon-${suffixIcon}`]"
       />
     </div>
   </div>

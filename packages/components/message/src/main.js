@@ -15,8 +15,12 @@ const Message = function(options = {}) {
     }
   }
 
-  let useOnClose = options.onClose;
+  let userOnClose = options.onClose;
   let _id = 'message_' + seed++;
+
+  options.onClose = function() {
+    Message.close(_id, userOnClose);
+  };
 
   instance = new MessageConstructor({
     data: options
@@ -32,7 +36,7 @@ const Message = function(options = {}) {
   return instance;
 }
 
-Message.close = function() {
+Message.close = function(id) {
   for (let i = 0, len = instances.length; i < len; i++) {
     if (id === instances[i].id) {
       instances.splice(i, 1);
