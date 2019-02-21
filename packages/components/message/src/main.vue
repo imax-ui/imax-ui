@@ -70,18 +70,12 @@ export default {
     close() {
       this.closed = true;
       if (typeof this.onClose === 'function') {
-        console.log('-----------------------');
-        console.log(this);
         this.onClose(this);
       }
     },
     startTimer() {
-      console.log('-----------------------');
-      console.log(this.duration);
       if (this.duration > 0) {
         this.timer = setTimeout(() => {
-          console.log('-----------------------');
-          console.log(this.closed);
           if (!this.closed) {
             this.close();
           }
