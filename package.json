@@ -3,6 +3,11 @@
   "version": "0.1.1",
   "private": false,
   "main": "./dist/imax-ui.common.js",
+  "todoList": [
+    "单独打包每个组件，以实现按需加载组件",
+    "scss 的 @mixin BEM 方法",
+    "降低 scss 的嵌套层级"
+  ],
   "files": [
     "dist",
     "packages",
@@ -41,31 +46,5 @@
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.5.21"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {
-      "no-console": "off"
-    },
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  }
 }
