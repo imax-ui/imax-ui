@@ -3,8 +3,6 @@
  * Date: 19/01/04
  */
 
- import Vue from 'vue';
-
 /* base */
 import './themes/index.scss';
 import Button from './components/button';
@@ -22,6 +20,7 @@ import Dropdown from './components/dropdown';
 
 /* Message */
 import Message from './components/message';
+import Alert from './components/alert'; 
 
 const components = [
   Button,
@@ -39,7 +38,8 @@ const components = [
 ];
 
 const messages = [
-  Message
+  Message,
+  Alert
 ]
 
 const install = function(Vue) {
@@ -66,5 +66,6 @@ export default {
   Select,
   Option,
   Dropdown,
-  Message
+  Message,
+  Alert
 };

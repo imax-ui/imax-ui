@@ -110,8 +110,8 @@ export default {
     }
   },
   methods: {
-    async testMessage() {
-      await this.$message({
+    testMessage() {
+      this.$Alert({
         type: 'error',
         message: 'test'
       });

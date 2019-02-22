@@ -1,31 +1,24 @@
-import main from './main.vue';
 import Vue from 'vue';
+import Main from './main.vue';
 
-let MessageConstructor = Vue.extend(main);
+const AlertConstructor = Vue.extend(Main);
 
 let instance;
 let instances = [];
 let seed = 0;
 let zIndex = 1;
 
-const Message = function(options = {}) {
+const Alert = function(options) {
   if (typeof options === 'string') {
     options = {
       message: options
     }
   }
 
-  let userOnClose = options.onClose;
-  let _id = 'message_' + seed++;
+  let id = `alert_${++seed}`;
 
-  options.onClose = function() {
-    Message.close(_id, userOnClose);
-  };
-
-  instance = new MessageConstructor({
-    data: options
-  })
-  instance.id = _id;
+  instance = new AlertConstructor();
+  instance.id = id;
 
   instance.vm = instance.$mount();
   document.body.append(instance.vm.$el);
@@ -36,18 +29,15 @@ const Message = function(options = {}) {
   return instance;
 }
 
-Message.close = function(id, userOnClose) {
+Alert.close = function(id) {
   for (let i = 0, len = instances.length; i < len; i++) {
     if (id === instances[i].id) {
-      if (typeof userOnClose === 'function') {
-        userOnClose();
-      }
       instances.splice(i, 1);
       break;
     }
   }
 }
 
-Message.componentName = 'Message';
+Alert.componentName = 'Alert';
 
-export default Message;
+export default Alert;
