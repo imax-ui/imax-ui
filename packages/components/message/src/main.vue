@@ -4,6 +4,7 @@
       v-show="visible"
       class="imax__message"
       :class="[messageClassName]"
+      @click="close"
     >
       <div class="imax__message__inner">
         <i
@@ -27,7 +28,7 @@ export default {
       type: '',
       icon: 'info',
       onClose: null,
-      duration: 1000,
+      duration: 2000,
       timer: null,
       closed: false
     }

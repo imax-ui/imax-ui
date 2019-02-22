@@ -48,7 +48,6 @@ const install = function(Vue) {
   }
   components.map(component => Vue.component(component.name, component));
   messages.forEach(comp => {
-    // console.log(comp);
     Vue.prototype[`$${comp.componentName}`] = comp;
   });
 };
@@ -66,5 +65,6 @@ export default {
   CheckBox,
   Select,
   Option,
-  Dropdown
+  Dropdown,
+  Message
 };
