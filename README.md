@@ -3,7 +3,7 @@
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/ByChoo/imax-ui.svg)
 ![GitHub](https://img.shields.io/github/license/ByChoo/imax-ui.svg)
 
-一个 Vue 组件库
+A UI Components Library
 
 ## Install
 
@@ -13,7 +13,7 @@ $ npm install imax-ui --save
 
 ## Usage
 
-### 全局使用
+### Global Use
 
 ```js
 import Vue from 'vue';
@@ -22,7 +22,7 @@ import imaxUi from 'imax-ui';
 Vue.use(imaxUi);
 ```
 
-### 局部使用
+### Local Use
 ```js
 import Vue from 'vue';
 import Button from 'imax-ui/dist/button';
