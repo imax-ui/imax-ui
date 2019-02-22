@@ -1,9 +1,12 @@
 .DS_Store
 node_modules
 dist
-/dist
 .history
 imax-ui (v1.0.0).xmind
+
+# lock files
+package-lock.json
+yarn.lock
 
 # local env files
 .env.local
