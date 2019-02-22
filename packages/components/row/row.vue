@@ -15,7 +15,8 @@ export default {
       default: 'top'
     },
     gutter: {
-      type: Number
+      type: Number,
+      default: null
     }
   },
   computed: {

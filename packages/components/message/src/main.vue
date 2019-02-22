@@ -39,15 +39,12 @@ export default {
     },
     iconClasName() {
       switch (this.type) {  
-        case 'success':
-          return 'icon-success'
-          break;
-        case 'error':
-          return 'icon-error'
-          break;
-        default:
+      case 'success':
+        return 'icon-success'
+      case 'error':
+        return 'icon-error'
+      default:
         return 'icon-info'
-          break;
       }
     },
   },

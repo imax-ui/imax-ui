@@ -1,7 +1,8 @@
 <template>
   <div 
     class="imax__textarea"
-    :style="{ fontSize: inputFontSize }">
+    :style="{ fontSize: inputFontSize }"
+  >
     <textarea 
       :value="value"
       class="imax__textarea--inner"
@@ -14,7 +15,8 @@
       :disabled="disabled"
       @input="handleInput"
       @focus="handleFocus"
-      @blur="handleBlur" />
+      @blur="handleBlur"
+    />
   </div>
 </template>
 <script>
