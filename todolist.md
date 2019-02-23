@@ -8,11 +8,11 @@
 ## 组件
 
 - [ ] Alert (**@BYChoo**)
-- [ ] Confirm (@**BYChoo**)
+- [ ] Confirm (**@BYChoo**)
 - [ ] Prompt
 - [ ] Notification
 - [ ] Loading
-- [ ] Switch
+- [ ] Switch (**@zhijiang3**)
 - [ ] Slider
 - [ ] Upload
 - [ ] Table
@@ -22,7 +22,6 @@
 
 - [ ] 某些组件样式命名不符合BEM法则，检查并修改 (**@BYChoo**)
 - [ ] 单独打包每个组件，以实现按需加载组件
-- [ ] 降低 scss 的嵌套层级
 
 ## 单元测试
 

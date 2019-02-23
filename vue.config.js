@@ -1,12 +1,11 @@
 const path = require('path');
-function resolve (dir) {
-  return path.join(__dirname, dir)
-}
+const resolve = dir => path.join(__dirname, dir);
+
 module.exports = {
-  chainWebpack: (config)=>{
+  chainWebpack: (config) => {
     config.resolve.alias
       .set('@', resolve('src'))
-      .set('packages',resolve('packages'))
-      .set('test',resolve('test'))
+      .set('packages', resolve('packages'))
+      .set('test', resolve('test'));
   }
 }
