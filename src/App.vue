@@ -112,7 +112,6 @@ export default {
   methods: {
     testMessage() {
       this.$Alert({
-        type: 'error',
         message: 'test'
       });
     }

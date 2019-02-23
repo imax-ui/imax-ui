@@ -17,7 +17,9 @@ const Alert = function(options) {
 
   let id = `alert_${++seed}`;
 
-  instance = new AlertConstructor();
+  instance = new AlertConstructor({
+    data: options
+  });
   instance.id = id;
 
   instance.vm = instance.$mount();
