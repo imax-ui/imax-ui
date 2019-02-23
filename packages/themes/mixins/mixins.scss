@@ -1,0 +1,45 @@
+@import './config.scss';
+
+/**
+ * CSS BEM
+ * TODO: 嵌套的问题
+ * Example:
+ *  @include b(button) {
+ *    @include e(inner) {}
+ *    @include m(suffix) {}
+ *  }
+ *  output =>
+ *  .iMax-button {}
+ *  .iMax-button__inner {}
+ *  .iMax-button--suffix {}
+ */
+
+@mixin b($block) {
+  $B: $namespace + '-' + $block !global;
+
+  @at-root {
+    #{ $B } {
+      @content;
+    }
+  }
+}
+
+@mixin e($element) {
+  $E: $B + $element-separator + $element !global;
+
+  @at-root {
+    #{ $E } {
+      @content;
+    }
+  }
+}
+
+@mixin m($modifier) {
+  $M: $B + $modifier-separator + $modifier !global;
+  
+  @at-root {
+    #{ $M } {
+      @content;
+    }
+  }
+}
