@@ -3,10 +3,6 @@
   "version": "0.1.1",
   "private": false,
   "main": "./dist/imax-ui.common.js",
-  "todoList": [
-    "单独打包每个组件，以实现按需加载组件",
-    "降低 scss 的嵌套层级"
-  ],
   "files": [
     "dist",
     "packages",
