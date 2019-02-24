@@ -18,9 +18,9 @@ export default {
   render (h) {
     return h(this.tag, {
       class: [
-        'imax__col',
-        `imax__col--${this.col}`,
-        this.offset ? `imax__col--offset-${this.offset}` : ''
+        'imax-col',
+        `imax-col-${this.col}`,
+        this.offset ? `imax-col-offset-${this.offset}` : ''
       ]
     }, this.$slots.default);
   }

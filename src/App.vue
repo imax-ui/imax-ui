@@ -31,10 +31,10 @@
         <Col
           :col="8"
           :offset="1"
-        />
-        asdsad
+        >
+          col-8 & offset-1
         </Col>
-        <Col />asd</Col>
+        <Col>col</Col>
       </Row>
     </div>
     <div class="group">
