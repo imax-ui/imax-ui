@@ -20,7 +20,7 @@
 <script>
 import emitter from 'packages/mixins/emitter';
 export default {
-  name: 'Option',
+  name: 'ImOption',
   mixins: [emitter],
   props: {
     value: {
@@ -44,7 +44,7 @@ export default {
   methods: {
     handleSelect() {
       this.selected = true;
-      this.dispath('Select','select', this.value);
+      this.dispatch('Select','select', this.value);
     },
     handleChange(ret) {
       if (ret !== this.value) {

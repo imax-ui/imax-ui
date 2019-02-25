@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: 'Checkbox',
+  name: 'ImCheckbox',
   props: {
     value: {
       type: [String, Number, Boolean],

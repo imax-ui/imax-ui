@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'Col',
+  name: 'ImCol',
   props: {
     tag: {
       type: String,

@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  name: 'Radio',
+  name: 'ImRadio',
   props: {
     value: {
       type: [String, Number],

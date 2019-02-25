@@ -21,7 +21,7 @@
 </template>
 <script>
 export default {
-  name: 'Textarea',
+  name: 'ImTextarea',
   props: {
     value: {
       type: String,

@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'Dropdown',
+  name: 'ImDropdown',
   props: {
     show: {
       type: Boolean,

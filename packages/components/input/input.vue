@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: 'Input',
+  name: 'ImInput',
   props: {
     value: {
       type: String,

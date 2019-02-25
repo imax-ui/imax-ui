@@ -22,7 +22,7 @@ import emitter from 'packages/mixins/emitter';
 import Input from 'packages/components/input';
 import Dropdown from 'packages/components/dropdown';
 export default {
-  name: 'Select',
+  name: 'ImSelect',
   components: {
     Input,
     Dropdown

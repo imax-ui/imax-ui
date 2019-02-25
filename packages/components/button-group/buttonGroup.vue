@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'ButtonGroup',
+  name: 'ImButtonGroup',
   render(h) {
     return h('div', {
       class: 'imax__button--group'

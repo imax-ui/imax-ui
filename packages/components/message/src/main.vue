@@ -57,7 +57,7 @@ export default {
     }
   },
   mounted() {
-    this.startTimer();
+    // this.startTimer();
   },
   methods: {
     destroyElement() {

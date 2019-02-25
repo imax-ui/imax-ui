@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: 'Button',
+  name: 'ImButton',
   props: {
     type: {
       type: String,

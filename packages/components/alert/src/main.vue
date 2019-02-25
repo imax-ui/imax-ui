@@ -1,6 +1,11 @@
 <template>
-  <transition name="fade-in-top">
-    <div class="imax-alert">
+  <transition
+    name="fade-in-top"
+  >
+    <div
+      v-show="visible"
+      class="imax-alert"
+    >
       <div class="imax-alert__header">
         <div class="imax-alert--title">
           {{ title }}
@@ -22,8 +27,30 @@ export default {
     return {
       message: '',
       title: '',
-      confirmText: ''
+      confirmText: '',
+      visible: false,
+      closed: false,
+      onClose: null,
     }
+  },
+  watch: {
+    closed(newVal) {
+      if (newVal) {
+        this.visible = false;
+      }
+    }
+  },
+  methods: {
+    destroyElement() {
+      this.$destroy(true);
+      this.$el.parentNode.removeChild(this.$el);
+    },
+    close() {
+      this.closed = true;
+      if (typeof this.onClose === 'function') {
+        this.onClose(this);
+      }
+    },
   }
 }
 </script>
