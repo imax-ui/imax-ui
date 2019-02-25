@@ -1,8 +1,8 @@
 {
   "alert": "./packages/components/alert/index.js",
   "button": "./packages/components/button/index.js",
-  "button-group": "./packages/components/button-group/index.js",
-  "check-box": "./packages/components/check-box/index.js",
+  "buttonGroup": "./packages/components/button-group/index.js",
+  "checkBox": "./packages/components/check-box/index.js",
   "col": "./packages/components/col/index.js",
   "dropdown": "./packages/components/dropdown/index.js",
   "icon": "./packages/components/icon/index.js",
