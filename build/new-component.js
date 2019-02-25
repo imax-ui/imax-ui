@@ -78,6 +78,16 @@ export default {
 
 `
     },
+    { /* d.ts 文件 */
+      filename: resolve(`./types/${ componentName }.d.ts`),
+      content: `\
+import Vue from 'vue';
+
+export declare interface ${ upperCamelName } extends Vue {
+}
+
+`
+    },
     { /* 测试文件 */
       filename: resolve(`./test/specs/${ componentName }.spec.js`),
       content: `\

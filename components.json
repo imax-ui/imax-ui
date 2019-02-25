@@ -12,5 +12,6 @@
   "radio": "./packages/components/radio/index.js",
   "row": "./packages/components/row/index.js",
   "select": "./packages/components/select/index.js",
-  "textarea": "./packages/components/textarea/index.js"
+  "textarea": "./packages/components/textarea/index.js",
+  "switch": "./packages/components/switch/index.js"
 }
