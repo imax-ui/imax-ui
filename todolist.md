@@ -16,7 +16,7 @@
 - [ ] Slider
 - [ ] Upload
 - [ ] Table
-- [ ] Carousel
+- [ ] Carousel (**@dimaLiang**)
 
 ## 样式
 
