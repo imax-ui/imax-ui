@@ -7,12 +7,12 @@
 
 ## 组件
 
-- [ ] Alert (**@BYChoo**)
+- [x] Alert (**@BYChoo**)
 - [ ] Confirm (**@BYChoo**)
 - [ ] Prompt
 - [ ] Notification
 - [ ] Loading
-- [ ] Switch (**@zhijiang3**)
+- [x] Switch (**@zhijiang3**)
 - [ ] Slider
 - [ ] Upload
 - [ ] Table
