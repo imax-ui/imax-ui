@@ -3,6 +3,14 @@
     <div class="group">
       <im-button
         type="warn"
+        @click="testAlert"
+      >
+        测试alert
+      </im-button>
+    </div>
+    <div class="group">
+      <im-button
+        type="warn"
         @click="testMessage"
       >
         测试message
@@ -23,9 +31,16 @@ export default {
     }
   },
   methods: {
-    testMessage() {
+    testAlert() {
       this.$Alert({
-        message: 'test'
+        message: 'test',
+        title: 'test'
+      });
+    },
+    testMessage() {
+      this.$Message({
+        message: 'test',
+        title: 'test'
       });
     }
   }

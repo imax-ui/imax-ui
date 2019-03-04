@@ -44,7 +44,7 @@ export default {
       case 'error':
         return 'icon-error'
       default:
-        return 'icon-info'
+        return 'icon-warning'
       }
     },
   },
@@ -57,7 +57,7 @@ export default {
     }
   },
   mounted() {
-    // this.startTimer();
+    this.startTimer();
   },
   methods: {
     destroyElement() {

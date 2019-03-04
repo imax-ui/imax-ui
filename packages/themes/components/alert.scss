@@ -1,21 +1,85 @@
 @import '../var.scss';
 @import '../mixins/mixins.scss';
-@import '../transition.scss';
 
 /*
  * alert style
  **/
 @include b(alert) {
-  min-width: 75px;
-  box-sizing: border-box;
-  border-radius: 5px;
-  border-width: 1px;
-  position: fixed;
-  left: 50%;
-  top: 20px;
-  overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0px 3px 10px 1px #eee;
-  font-size: $alert-font-size;
-  text-align: center;
+  @include e(body) {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    position: fixed;
+    overflow: hidden;
+
+    /* container
+    -------------------------- */
+    @include e(container) {
+      overflow: hidden;
+      background-color: #fff;
+      border-radius: 3px;
+      box-shadow: 0 5px 10px rgba(0,0,0,.1);
+      font-size: $alert-font-size;
+      transform: translateX(-50%);
+      padding: 5px 10px;
+      min-width: 350px;
+      box-sizing: border-box;
+      border-radius: 5px;
+      border-width: 1px;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      opacity: 0;
+      transition: top .2s, opacity .2s;  
+    }
+
+    /* header
+    -------------------------- */
+    @include m(header) {
+      min-height: 40px;
+      line-height: 40px;
+      font-size: 16px;
+      padding-left: 15px;
+    }
+
+    /* inner
+    -------------------------- */
+    @include m(inner) {
+      padding: 10px 15px;
+    }
+
+    /* footer
+    -------------------------- */
+    @include m(footer) {
+      padding: 10px 15px;
+      text-align: right;
+    }
+  }
 }
+
+@include b(mask) {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: opacity .2s;
+  background: rgba(0,0,0,.16);
+  z-index: 1000;
+  opacity: 0;
+}
+
+.is-mounted {
+  opacity: 1;
+  top: 50%
+}
+
+.is-show {
+  opacity: 1;
+}
+
+
+
+@import '../transition.scss';

@@ -1,24 +1,36 @@
 <template>
-  <transition
-    name="fade-in-top"
+  <div
+    class="imax-alert"
   >
     <div
-      v-show="visible"
-      class="imax-alert"
+      class="imax-alert__body"
     >
-      <div class="imax-alert__header">
-        <div class="imax-alert--title">
-          {{ title }}
+      <div
+        class="imax-alert__container"
+        :class="{
+          'is-mounted': visible
+        }"
+      >
+        <div class="imax-alert--header">
+          <div class="imax-aler--title">
+            {{ title }}
+          </div>
+        </div>
+        <div class="imax-alert--inner">
+          {{ message }}
+        </div>
+        <div class="imax-alert--footer">
+          <im-button @click="close">
+            {{ confirmText }}
+          </im-button>
         </div>
       </div>
-      <div class="imax-alert__inner">
-        {{ message }}
-      </div>
-      <div class="imax-alert__confirm-text">
-        {{ confirmText }}
-      </div>
     </div>
-  </transition>
+    <div
+      class="imax-mask"
+      :class="{'is-show': visible}"
+    />
+  </div>
 </template>
 
 <script>
@@ -27,7 +39,7 @@ export default {
     return {
       message: '',
       title: '',
-      confirmText: '',
+      confirmText: '确定',
       visible: false,
       closed: false,
       onClose: null,
@@ -37,11 +49,13 @@ export default {
     closed(newVal) {
       if (newVal) {
         this.visible = false;
+        this.$el.addEventListener('transitionend', this.destroyElement);
       }
     }
   },
   methods: {
     destroyElement() {
+      this.$el.removeEventListener('transitionend', this.destroyElement);
       this.$destroy(true);
       this.$el.parentNode.removeChild(this.$el);
     },
