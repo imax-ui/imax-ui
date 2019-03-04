@@ -15,12 +15,17 @@ const Alert = function(options) {
     }
   }
 
-  let id = `alert_${++seed}`;
+  let userOnClose = options.onClose;
+  let _id = `alert_${++seed}`;
+
+  options.onClose = function() {
+    Alert.close(_id, userOnClose);
+  };
 
   instance = new AlertConstructor({
     data: options
   });
-  instance.id = id;
+  instance.id = _id;
 
   instance.vm = instance.$mount();
   document.body.append(instance.vm.$el);
@@ -31,9 +36,12 @@ const Alert = function(options) {
   return instance;
 }
 
-Alert.close = function(id) {
+Alert.close = function(id, userOnClose) {
   for (let i = 0, len = instances.length; i < len; i++) {
     if (id === instances[i].id) {
+      if (typeof userOnClose === 'function') {
+        userOnClose();
+      }
       instances.splice(i, 1);
       break;
     }

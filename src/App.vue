@@ -51,7 +51,8 @@ export default {
     testAlert() {
       this.$Alert({
         message: 'test',
-        title: 'test'
+        title: 'test',
+        onClose: () => { console.log('close') }
       });
     },
     testMessage() {

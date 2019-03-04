@@ -38,7 +38,7 @@ export default {
   data() {
     return {
       message: '',
-      title: '',
+      title: '标题',
       confirmText: '确定',
       visible: false,
       closed: false,
