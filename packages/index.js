@@ -16,6 +16,7 @@ import CheckBox from './components/check-box';
 import Select from './components/select';
 import Option from './components/option';
 import Dropdown from './components/dropdown';
+import Switch from './components/switch';
 
 /* Message */
 import Message from './components/message';
@@ -33,13 +34,14 @@ const components = [
   CheckBox,
   Select,
   Option,
-  Dropdown
+  Dropdown,
+  Switch
 ];
 
 const messages = [
   Message,
   Alert
-]
+];
 
 const install = function(Vue) {
   if (install.installed) {
@@ -66,5 +68,6 @@ export default {
   Option,
   Dropdown,
   Message,
-  Alert
+  Alert,
+  Switch
 };
