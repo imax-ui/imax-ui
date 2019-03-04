@@ -16,6 +16,22 @@
         测试message
       </im-button>
     </div>
+
+    <div class="group">
+      <p>{{ switchValue }}</p>
+      <im-switch
+        v-model="switchValue"
+        active-value="active"
+        inactive-value="inactive"
+        @change="handleSwitchChange"
+      />
+      <im-switch
+        v-model="switchValue"
+        disabled
+        active-value="active"
+        inactive-value="inactive"
+      />
+    </div>
   </div>
 </template>
 
@@ -24,6 +40,7 @@ export default {
   name: 'App',
   data() {
     return {
+      switchValue: 'active',
       inputModel: '',
       radioModel: '',
       checkBoxModel: false,
@@ -41,6 +58,11 @@ export default {
       this.$Message({
         message: 'test',
         title: 'test'
+      });
+    },
+    handleSwitchChange() {
+      this.$Alert({
+        message: this.switchValue
       });
     }
   }

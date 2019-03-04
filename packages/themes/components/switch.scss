@@ -1,6 +1,63 @@
 @import '../var.scss';
 @import '../mixins/mixins.scss';
 
+$--switch-height: 22px !default;
+$--switch-inner-size: 18px !default;
+$--switch-fill: rgba(0, 0, 0, 0.25) !default;
+$--switch-active-fill: $color-primary !default;
+
 @include b(switch) {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+
+  @include e(input) {
+    display: none;
+  }
+
+  @include e(inner) {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s;
+    background-color: $--switch-fill;
+    height: $--switch-height;
+    border-radius: $--switch-height;
+    width: 40px;
+
+    &:after {
+      content: "";
+      left: 2px;
+      top: ($--switch-height - $--switch-inner-size) / 2;
+      width: $--switch-inner-size;
+      height: $--switch-inner-size;
+      border-radius: $--switch-inner-size;
+      background-color: #fff;
+      position: absolute;
+      z-index: 1;
+      transition: all 0.3s;
+    }
+  }
+
+  @include when(active) {
+    .imax-switch__inner {
+      background-color: $--switch-active-fill;
+
+      &:after {
+        left: 100%;
+        transform: translateX(-100%);
+        margin-left: -2px;
+      }
+    }
+  }
+
+  @include when(disabled) {
+    .imax-switch__inner {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
 }
 

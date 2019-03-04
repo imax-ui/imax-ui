@@ -42,7 +42,7 @@ function generateConf({ componentName }) {
     { /* 组件的入口文件 */
       filename: resolve(`./packages/components/${ componentName }/index.js`),
       content: `\
-import ${ upperCamelName } from './checkBox.vue';
+import ${ upperCamelName } from './src/${ camelName }.vue';
 
 ${ upperCamelName }.install = function(Vue) {
   Vue.component(${ upperCamelName }.name, ${ upperCamelName });
