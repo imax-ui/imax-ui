@@ -34,6 +34,12 @@ Vue.use(Button);
 Vue.component(Button.name, Button);
 ```
 
+# Browser Support
+Modern browsers and Internet Explorer 10+.
+
+# Changelog
+Detailed changes for each release are documented in the [release notes](https://github.com/BYChoo/imax-ui/releases)
+
 ## LICENSE
 
 [MIT](https://github.com/ByChoo/imax-ui/blob/master/LICENSE)
