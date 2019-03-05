@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file
 
-# (2019-03-05)
+# [0.5.6](https://github.com/BYChoo/imax-ui/tree/v0.5.6) (2019-03-05)
 
 ### Bug Fixes
 
