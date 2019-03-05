@@ -39,6 +39,10 @@ $--switch-active-fill: $color-primary !default;
       z-index: 1;
       transition: all 0.3s;
     }
+
+    &:active:after {
+      width: $--switch-inner-size + 5px;
+    }
   }
 
   @include when(active) {
