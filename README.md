@@ -34,13 +34,13 @@ Vue.use(Button);
 Vue.component(Button.name, Button);
 ```
 
-# Browser Support
+## Browser Support
 Modern browsers and Internet Explorer 10+.
 
-# Changelog
+## Changelog
 Detailed changes for each release are documented in the [release notes](https://github.com/BYChoo/imax-ui/releases)
 
-# Todo list
+## Todo list
 Please view this file for participating projects [todo list](https://github.com/BYChoo/imax-ui/blob/master/todolist.md)
 
 ## LICENSE
