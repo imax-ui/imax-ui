@@ -15,7 +15,7 @@
 - [x] Switch (**@zhijiang3**)
 - [ ] Form (**@zhijiang3**)
 - [ ] FormItem (**@zhijiang3**)
-- [ ] Slider
+- [ ] Slider(**@JL Guan**)
 - [ ] Upload
 - [ ] Table
 - [ ] Carousel (**@dimaLiang**)
