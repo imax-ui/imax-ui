@@ -8,7 +8,7 @@
 ## 组件
 
 - [x] Alert (**@BYChoo**)
-- [ ] Confirm (**@BYChoo**)
+- [x] Confirm (**@BYChoo**)
 - [ ] Prompt
 - [ ] Notification
 - [ ] Loading
