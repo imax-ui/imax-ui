@@ -1,4 +1,4 @@
-import Confirm from 'packages/components/confirm/src/confirm.vue';
+import Confirm from 'packages/components/confirm/src/main.vue';
 import { shallowMount } from '@vue/test-utils';
 import { expect } from 'chai';
 

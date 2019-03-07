@@ -16,23 +16,23 @@ describe('Input', function() {
   it('prefix', () => {
     const wrapper = shallowMount(Input, {
       propsData: {
-        prefixIcon: 'camera'
+        prefixIcon: 'info'
       }
     });
     const inputEl = wrapper.vm.$el;
     expect(inputEl.querySelector('.imax__input--prefix-inner')).to.be.ok;
-    expect(inputEl.querySelector('.imax-icon-camera')).to.be.ok;
+    expect(inputEl.querySelector('.icon-info')).to.be.ok;
   });  
 
 
   it('suffix', () => {
     const wrapper = shallowMount(Input, {
       propsData: {
-        suffixIcon: 'camera'
+        suffixIcon: 'info'
       }
     });
     const inputEl = wrapper.vm.$el;
     expect(inputEl.querySelector('.imax__input--suffix-inner')).to.be.ok;
-    expect(inputEl.querySelector('.imax-icon-camera')).to.be.ok;
+    expect(inputEl.querySelector('.icon-info')).to.be.ok;
   }); 
 });

@@ -20,7 +20,7 @@ describe('Col', function() {
       }
     });
     const colEl = wrapper.vm.$el;
-    expect(colEl.classList.contains( `imax__col--20`)).to.be.true;
+    expect(colEl.classList.contains(`imax-col-20`)).to.be.true;
   });
 
   it('offset', () => {
@@ -30,6 +30,6 @@ describe('Col', function() {
       }
     });
     const colEl = wrapper.vm.$el;
-    expect(colEl.classList.contains( `imax__col--offset-20`)).to.be.true;
+    expect(colEl.classList.contains( `imax-col-offset-20`)).to.be.true;
   });
 });

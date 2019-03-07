@@ -44,8 +44,12 @@
 </template>
 
 <script>
+import ImButton from 'packages/components/button/button';
 export default {
-  name: 'Imconfirm',
+  name: 'ImConfirm',
+  components: {
+    ImButton
+  },
   data() {
     return {
       message: '',
