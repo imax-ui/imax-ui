@@ -28,8 +28,8 @@ const Alert = function(options) {
   instance.id = _id;
 
   instance.vm = instance.$mount();
-  document.body.append(instance.vm.$el);
   instance.vm.visible = true;
+  document.body.append(instance.vm.$el);
   instance.dom = instance.vm.$el;
   instance.dom.style.zIndex = ++zIndex;
   instances.push(instance);

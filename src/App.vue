@@ -32,6 +32,15 @@
         inactive-value="inactive"
       />
     </div>
+
+    <div class="group">
+      <im-button
+        type="warn"
+        @click="testConfirm"
+      >
+        testConfirm
+      </im-button>
+    </div>
   </div>
 </template>
 
@@ -59,6 +68,14 @@ export default {
       this.$Message({
         message: 'test',
         title: 'test'
+      });
+    },
+    testConfirm() {
+      this.$Confirm({
+        message: 'test',
+        title: 'test',
+        onConfirm: () => { console.log('confirm') },
+        onCancel: () => { console.log('cancel') }
       });
     },
     handleSwitchChange() {
