@@ -14,5 +14,10 @@
   "select": "./packages/components/select/index.js",
   "textarea": "./packages/components/textarea/index.js",
   "switch": "./packages/components/switch/index.js",
+<<<<<<< HEAD
   "slider": "./packages/components/slider/index.js"
+=======
+  "slider": "./packages/components/Slider/index.js",
+  "confirm": "./packages/components/confirm/index.js"
+>>>>>>> 5d04dfa30f7ee0d07c896cda4d75ef274728e0cc
 }

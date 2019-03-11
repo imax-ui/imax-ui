@@ -6,11 +6,11 @@ describe('Icon', function() {
   it('type', () => {
     const wrapper = shallowMount(Icon, {
       propsData: {
-        type: 'camera'
+        type: 'info'
       }
     });
     const iconEl = wrapper.vm.$el;
-    expect(iconEl.classList.contains('imax-icon-camera')).to.be.true;
+    expect(iconEl.classList.contains('icon-info')).to.be.true;
   });
 
   it('fontsize', () => {

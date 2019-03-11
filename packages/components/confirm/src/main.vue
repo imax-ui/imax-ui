@@ -1,27 +1,36 @@
 <template>
   <div
-    class="imax-alert"
+    class="imax-confirm"
   >
     <div
-      class="imax-alert__body"
+      class="imax-confirm__body"
     >
       <div
-        class="imax-alert__container"
+        class="imax-confirm__container"
         :class="{
           'is-mounted': opened
         }"
       >
-        <div class="imax-alert--header">
+        <div class="imax-confirm--header">
           <div class="imax-aler--title">
             {{ title }}
           </div>
         </div>
-        <div class="imax-alert--inner">
+        <div class="imax-confirm--inner">
           {{ message }}
         </div>
-        <div class="imax-alert--footer">
-          <im-button @click="close">
-            {{ confirmText }}
+        <div class="imax-confirm--footer">
+          <im-button
+            :type="cancelBtnType"
+            @click="cancel"
+          >
+            {{ cancelBtnText }}
+          </im-button>
+          <im-button
+            :type="confirmBtnType"
+            @click="confirm"
+          > 
+            {{ confirmBtnText }}
           </im-button>
         </div>
       </div>
@@ -35,15 +44,24 @@
 </template>
 
 <script>
+import ImButton from 'packages/components/button/button';
 export default {
+  name: 'ImConfirm',
+  components: {
+    ImButton
+  },
   data() {
     return {
       message: '',
       title: '标题',
-      confirmText: '确定',
+      confirmBtnText: '确定',
+      confirmBtnType: 'primary',
+      cancelBtnText: '取消',
+      cancelBtnType: '',
       visible: false,
       closed: false,
-      onClose: null,
+      onCancel: null,
+      onConfirm: null,
       opened: false
     }
   },
@@ -68,13 +86,20 @@ export default {
       this.$destroy(true);
       this.$el.parentNode.removeChild(this.$el);
     },
-    close() {
+    confirm() {
       this.opened = false;
       this.closed = true;
-      if (typeof this.onClose === 'function') {
-        this.onClose(this);
+      if (typeof this.onCancel === 'function') {
+        this.onConfirm(this);
       }
     },
+    cancel() {
+      this.opened = false;
+      this.closed = true;
+      if (typeof this.onConfirm === 'function') {
+        this.onCancel(this);
+      }
+    }
   }
 }
 </script>

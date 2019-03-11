@@ -13,3 +13,5 @@ All notable changes to this project will be documented in this file
 ### Features
 
 * add types & update new-component.js & add switch component ([9b07531](https://github.com/BYChoo/imax-ui/commit/9b07531))
+
+* add confirm component ([e46ae40](https://github.com/BYChoo/imax-ui/commit/e46ae40))

@@ -8,7 +8,7 @@
 ## 组件
 
 - [x] Alert (**@BYChoo**)
-- [ ] Confirm (**@BYChoo**)
+- [x] Confirm (**@BYChoo**)
 - [ ] Prompt
 - [ ] Notification
 - [ ] Loading
@@ -32,12 +32,17 @@
 ## 工程化
 
 - [x] 自动创建组件对应文件，利用.d.ts文件引导 (**@zhijiang3**)
-- [ ] 引入popper.js，统一管理弹窗浮层
+- [ ] 自动生成 packages/index.js 文件
 
 ## 改造
 
 - [ ] 统一组件结构
+- [ ] 引入popper.js，统一管理弹窗浮层
 
 ## 生态
 
 - [ ] 页面展示
+
+## 展示
+
+- [ ] 官网

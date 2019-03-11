@@ -1,32 +1,26 @@
 <template>
   <div
     class="imax-switch"
-    @click.stop="handleClick"
     :class="{
       'is-active': isActive,
       'is-disabled': disabled
     }"
+    @click.stop="handleClick"
   >
     <input
+      v-model="isActive"
       :name="name"
       class="imax-switch__input"
       :disabled="disabled"
-      v-model="isActive"
       type="checkbox"
-    />
-    <span class="imax-switch__inner"></span>
+    >
+    <span class="imax-switch__inner" />
   </div>
 </template>
 
 <script>
 export default {
   name: 'ImSwitch',
-
-  data() {
-    return {
-      isActive: false
-    }
-  },
   
   props: {
     name: String,
@@ -42,10 +36,20 @@ export default {
     }
   },
 
+  data() {
+    return {
+      isActive: false
+    }
+  },
+
   watch: {
     value(val) {
       this.updateActive(val === this.activeValue);
     }
+  },
+
+  mounted() {
+    this.isActive = this.value === this.activeValue;
   },
 
   methods: {
@@ -61,10 +65,6 @@ export default {
       this.$emit('change', isActive);
       this.$emit('input', this.isActive ? this.activeValue : this.inactiveValue);
     }
-  },
-
-  mounted() {
-    this.isActive = this.value === this.activeValue;
   }
 }
 </script>

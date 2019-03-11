@@ -22,6 +22,7 @@ import Slider from './components/slider';
 /* Message */
 import Message from './components/message';
 import Alert from './components/alert'; 
+import Confirm from './components/confirm';
 
 const components = [
   Button,
@@ -42,7 +43,8 @@ const components = [
 
 const messages = [
   Message,
-  Alert
+  Alert,
+  Confirm
 ];
 
 const install = function(Vue) {
@@ -72,5 +74,6 @@ export default {
   Message,
   Alert,
   Switch,
-  Slider
+  Slider,
+  Confirm
 };
