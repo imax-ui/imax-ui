@@ -1,12 +1,12 @@
-import Slider from 'packages/components/Slider/src/slider.vue';
+import slider from 'packages/components/slider/src/slider.vue';
 import { shallowMount } from '@vue/test-utils';
 import { expect } from 'chai';
 
-describe('Slider', function() {
+describe('slider', function() {
   it('create', () => {
-    const wrapper = shallowMount(Slider);
+    const wrapper = shallowMount(slider);
     const el = wrapper.vm.$el;
-    expect(el.classList.contains('imax-Slider')).to.be.true;
+    expect(el.classList.contains('imax-slider')).to.be.true;
   });
 });
 

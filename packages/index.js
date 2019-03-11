@@ -17,6 +17,7 @@ import Select from './components/select';
 import Option from './components/option';
 import Dropdown from './components/dropdown';
 import Switch from './components/switch';
+import Slider from './components/slider';
 
 /* Message */
 import Message from './components/message';
@@ -35,7 +36,8 @@ const components = [
   Select,
   Option,
   Dropdown,
-  Switch
+  Switch,
+  Slider
 ];
 
 const messages = [
@@ -69,5 +71,6 @@ export default {
   Dropdown,
   Message,
   Alert,
-  Switch
+  Switch,
+  Slider
 };

@@ -14,5 +14,5 @@
   "select": "./packages/components/select/index.js",
   "textarea": "./packages/components/textarea/index.js",
   "switch": "./packages/components/switch/index.js",
-  "slider": "./packages/components/Slider/index.js"
+  "slider": "./packages/components/slider/index.js"
 }

@@ -32,6 +32,10 @@
         inactive-value="inactive"
       />
     </div>
+
+    <div class="group" style="margin-top: 100px;">
+      <im-slider v-model="sliderValue"></im-slider>
+    </div>
   </div>
 </template>
 
@@ -44,7 +48,8 @@ export default {
       inputModel: '',
       radioModel: '',
       checkBoxModel: false,
-      selectModel: ''
+      selectModel: '',
+      sliderValue: 10
     }
   },
   methods: {
