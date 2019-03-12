@@ -1,5 +1,5 @@
 <template>
-  <div class="imax-slider">
+  <div class="imax-slider" ref="slider">
     <div
       :style="{width: count + '%'}"
       class="imax-slider__bar" 
@@ -10,8 +10,11 @@
       :style="{left: count + '%'}"
     >
       <p class="imax-slider__button" />
-      <div class="imax-slider__count">
-        <p>{{ count }}</p>
+      <div 
+        :style="countOpacityStyle && { opacity: 1 }"
+        class="imax-slider__count"
+      >
+        <p>{{ count | filterCount }}</p>
       </div>
     </div>
 
@@ -39,7 +42,8 @@ export default {
   name: 'ImSlider',
   data() {
     return {
-      count: this.value >= 0 && this.value <= 100 ? this.value : 0
+      count: this.value >= 0 && this.value <= 100 ? this.value : 0,
+      countOpacityStyle: ''
     }
   },
   props: {
@@ -70,12 +74,41 @@ export default {
       this.$emit('input', Number(val))
     }
   },
+  filters: {
+    filterCount(val) {
+      return Math.round(val)
+    }
+  },
   mounted() {
     this.init()
   },
   methods: {
     init() {
+      const { buttonWrapper, slider } = this.$refs
+      let isMove, startX = 0
 
+      buttonWrapper.onmousedown = (e) => {
+        isMove = true
+        startX = e.clientX
+
+        window.onmousemove = (e) => {
+          if(!isMove) return
+          this.countOpacityStyle = true
+
+          const count = (e.clientX - startX) / slider.offsetWidth
+
+          if(this.count <= 0 && count <= 0) return this.count = 0
+          if(this.count >= 100 && count >= 0) return this.count = 100
+
+          this.count += count * 100
+          startX = e.clientX
+        }
+        window.onmouseup = () => {
+          this.countOpacityStyle = false
+          isMove = false
+          window.onmousemove = null
+        }
+      }
     },
   }
 }
