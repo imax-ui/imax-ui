@@ -15,5 +15,6 @@
   "textarea": "./packages/components/textarea/index.js",
   "switch": "./packages/components/switch/index.js",
   "slider": "./packages/components/slider/index.js",
-  "confirm": "./packages/components/confirm/index.js"
+  "confirm": "./packages/components/confirm/index.js",
+  "carousel": "./packages/components/carousel/index.js"
 }

@@ -46,6 +46,10 @@
       <im-slider v-model="sliderValue"></im-slider>
     </div>
     
+    <div class="group">
+      <im-carousel></im-carousel>
+    </div>
+    
   </div>
 </template>
 
