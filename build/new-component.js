@@ -32,7 +32,7 @@ function generateConf({ componentName }) {
   const camelName = camelCase(componentName);
   const upperCamelName = upperCamelCase(componentName);
 
-  componentsFile[camelName] = `./packages/components/${ componentName }/index.js`;
+  componentsFile[camelName] = `./packages/components/${ camelName }/index.js`;
 
   const files = [
     { /* components.json */
@@ -40,7 +40,7 @@ function generateConf({ componentName }) {
       content: JSON.stringify(componentsFile, null, '  ')
     },
     { /* 组件的入口文件 */
-      filename: resolve(`./packages/components/${ componentName }/index.js`),
+      filename: resolve(`./packages/components/${ camelName }/index.js`),
       content: `\
 import ${ upperCamelName } from './src/${ camelName }.vue';
 
@@ -53,7 +53,7 @@ export default ${ upperCamelName };
 `
     },
     { /* 组件文件 */
-      filename: resolve(`./packages/components/${ componentName }/src/${ camelName }.vue`),
+      filename: resolve(`./packages/components/${ camelName }/src/${ camelName }.vue`),
       content: `\
 <template>
   <div class="imax-${ componentName }">${ componentName }</div>
