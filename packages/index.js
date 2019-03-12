@@ -19,6 +19,7 @@ import Dropdown from './components/dropdown';
 import Switch from './components/switch';
 import Slider from './components/slider';
 import Carousel from './components/carousel';
+import CarouselItem from './components/carouselItem';
 
 /* Message */
 import Message from './components/message';
@@ -40,7 +41,8 @@ const components = [
   Dropdown,
   Switch,
   Slider,
-  Carousel
+  Carousel,
+  CarouselItem
 ];
 
 const messages = [Message, Alert, Confirm];

@@ -46,8 +46,10 @@
       <im-slider v-model="sliderValue"></im-slider>
     </div>
     
-    <div class="group">
-      <im-carousel></im-carousel>
+    <div class="group carousel-div">
+      <im-carousel>
+        <im-carousel-item></im-carousel-item>
+      </im-carousel>
     </div>
     
   </div>
@@ -100,6 +102,13 @@ export default {
 <style lang="scss" scoped>
 .group {
   margin: 20px 0;
+}
+
+.carousel-div {
+  width: 50%;
+  height: 200px;
+  margin: 0 auto;
+  background-color: #efefef;
 }
 </style>
 

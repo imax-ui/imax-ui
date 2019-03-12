@@ -1,6 +1,6 @@
 <template>
   <div class="imax-Carousel">
-    Carousel
+    <slot></slot>
   </div>
 </template>
 
