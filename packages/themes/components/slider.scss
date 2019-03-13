@@ -2,102 +2,196 @@
 @import '../mixins/mixins.scss';
 
 @include b(slider) {
-	margin: 10px;
-	height: 10px;
-	width: 500px;
-	border-radius: 10px;
-	position: relative;
-	background: #e6e7e8;
+  display: flex;
+  align-items: center;
+  @include e(content) {
+  	margin: 10px;
+  	height: 6px;
+  	width: 500px;
+  	border-radius: 10px;
+  	position: relative;
+  	background: #e6e7e8;
 
-	@include e(bar) {
-		border-radius: 10px;
-		position: absolute;
-		background: $color-primary;
-		height: 100%;
-		width: 100%;
-		left: 0;
-		top: 0;
-		display: flex;
-		align-items: center;
-	}
+  	@include e(disabled) {
+  		$disabled-color: #ccc;
+  		.imax-slider__bar {
+  			background: $disabled-color;
+  		}			
+  		.imax-slider__button {
+  			cursor: not-allowed;
+  			border-color: $disabled-color;
+  		}
+  	}
 
-	$button-translateX: 12px;
-	$button-height: 26px;
-	@include e(button-wrapper) {
-		background: transparent;
-		width: $button-height;
-		height: $button-height;
-		position: absolute;
-		left: 0;
-		top: 50%;
-		transform: translate(-50%, -50%);
+  	@include e(bar) {
+  		border-radius: 10px;
+  		position: absolute;
+  		background: $color-primary;
+  		height: 100%;
+  		width: 100%;
+  		left: 0;
+  		top: 0;
+  		display: flex;
+  		align-items: center;
+  	}
 
-		@include e(button) {
-			transition: 0.2s;
-			position: absolute;
-			margin: 0;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-			background: white;
-			border: 2px solid $color-primary;
-			border-radius: 50%;
-			height: 16px;
-			width: 16px;
-		}
+  	$button-translateX: 12px;
+  	$button-height: 26px;
+  	@include e(button-wrapper) {
+  		width: $button-height;
+  		height: $button-height;
+  		z-index: 100;
+  		background: transparent;
+  		position: absolute;
+  		left: 0;
+  		top: 50%;
+  		transform: translate(-50%, -50%);
 
-		&:hover {
-			.imax-slider__button {
-				cursor: grab;
-				transform: translate(-50%, -50%) scale(1.2);
-			}
-			.imax-slider__count {
-				opacity: 1;
-			}
-		}
+  		@include e(button) {
+  			transition: 0.2s;
+  			position: absolute;
+  			margin: 0;
+  			left: 50%;
+  			top: 50%;
+  			transform: translate(-50%, -50%);
+  			background: white;
+  			border: 2px solid $color-primary;
+  			border-radius: 50%;
+  			height: 16px;
+  			width: 16px;
+  		}
 
-		$count-height: 33px;
+  		&:hover {
+  			.imax-slider__button {
+  				cursor: grab;
+  				transform: translate(-50%, -50%) scale(1.2);
+  			}
+  			.imax-slider__count {
+  				opacity: 1;
+  			}
+  		}
 
-		@include e(count) {
-			transition: 0.4s;
-			opacity: 0;
-			position: absolute;
-			top: -$count-height - 12px;
-			background: black;
-			width: 30px;
-			height: $count-height;
-			border-radius: 5px;
-			left: 50%;
-			transform: translateX(-50%);
+  		$count-height: 33px;
 
-			&:after {
-				content: "";
-				position: absolute;
-				left: 50%;
-				transform: translateX(-50%);
-				top: 30px;
-				width: 15px;
-				height: 10px;
-				background: black;
-				clip-path: polygon(0 0, 50% 100%, 100% 0);
-			}
+  		@include e(count) {
+  			transition: 0.4s;
+  			opacity: 0;
+  			position: absolute;
+  			top: -$count-height - 12px;
+  			background: black;
+  			width: 30px;
+  			height: $count-height;
+  			border-radius: 5px;
+  			left: 50%;
+  			transform: translateX(-50%);
 
-			> p {
-				width: 100%;
-				font-size: 14px;
-				text-align: center;
-				line-height: 33px;
-				color: white;
-				margin: 0 auto;
-			}
-		}
-	}
+  			&:after {
+  				content: "";
+  				position: absolute;
+  				left: 50%;
+  				transform: translateX(-50%);
+  				top: 30px;
+  				width: 0;
+  				height: 0;
+  				border-style: solid;
+  				border-width: 12px 9px 0 9px;
+  				border-color: black transparent transparent transparent;
+  			}
 
-	@include m(show-stope) {
-		height: 100%;
+  			> p {
+  				width: 100%;
+  				font-size: 12px;
+  				text-align: center;
+  				line-height: 33px;
+  				color: white;
+  				margin: 0 auto;
+  			}
+  		}
+  	}
 
-		@include e(steps) {
-			height: 100%;
-		}
-	}
+  	@include m(show-stope) {
+  		height: 100%;
+  		width: 100%;
+  		overflow: hidden;
+
+  		@include e(steps) {
+  			height: 100%;
+  			width: 100%;
+  			display: flex;
+  			align-items: center;
+
+  			> p {
+  				position: absolute;
+  				margin: 0;
+  				background: white;
+  				height: 6px;
+  				width: 6px;
+  				transform: translateX(-50%);
+  				border-radius: 50%;
+  			}
+  		}
+  	}
+  }
+
+  @include e(show-input) {
+    cursor: pointer;
+
+    @include e(show-input-content) {
+      $btn-size: 30px;
+
+      height: $btn-size;
+      width: 120px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+
+      @include e(input-wrapper) {
+        border: solid #ccc;
+        border-width: 1px 0;
+        height: 29px;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > input {
+          width: 100%;
+          cursor: pointer;
+          text-align: center;
+          outline: 0;
+          border: 0;
+        }
+      }
+
+      &:focus-within {
+        .imax-slider__input-wrapper {
+          border: solid $color-primary;
+          border-width: 1px 0;
+        }
+        .imax-slider__dec-button {
+          border: 1px solid $color-primary;
+          border-radius: 3px 0 0 3px;
+          border-right-color: #ccc;
+        }
+        .imax-slider__inc-button {
+          border-radius: 0 3px 3px 0;
+          border-right-color: $color-primary;
+          border-left-color: #ccc;
+        }
+      }
+
+      @include e(dec-button) {
+        border: 1px solid #ccc;
+        border-radius: 3px 0 0 3px;
+        width: $btn-size - 1px;
+        height: $btn-size - 1px;
+        background: #f5f6f7;
+        line-height: 27px;
+      }
+
+      @include e(inc-button) {
+        @extend .imax-slider__dec-button;
+        border-radius: 0 3px 3px 0;
+      }
+    }
+  }
 }

@@ -19,10 +19,12 @@ import Dropdown from './components/dropdown';
 import Switch from './components/switch';
 import Slider from './components/slider';
 import Table from './components/table';
+import Carousel from './components/carousel';
+import CarouselItem from './components/carouselItem';
 
 /* Message */
 import Message from './components/message';
-import Alert from './components/alert'; 
+import Alert from './components/alert';
 import Confirm from './components/confirm';
 
 const components = [
@@ -40,14 +42,12 @@ const components = [
   Dropdown,
   Switch,
   Slider,
-  Table
+  Table,
+  Carousel,
+  CarouselItem
 ];
 
-const messages = [
-  Message,
-  Alert,
-  Confirm
-];
+const messages = [Message, Alert, Confirm];
 
 const install = function(Vue) {
   if (install.installed) {
@@ -60,7 +60,7 @@ const install = function(Vue) {
 };
 
 export default {
-  install, 
+  install,
   Button,
   ButtonGroup,
   Icon,
@@ -77,5 +77,6 @@ export default {
   Alert,
   Switch,
   Slider,
-  Confirm
+  Confirm,
+  Carousel
 };

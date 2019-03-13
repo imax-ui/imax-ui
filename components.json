@@ -16,5 +16,7 @@
   "switch": "./packages/components/switch/index.js",
   "slider": "./packages/components/slider/index.js",
   "confirm": "./packages/components/confirm/index.js",
-  "table": "./packages/components/table/index.js"
+  "table": "./packages/components/table/index.js",
+  "carousel": "./packages/components/carousel/index.js",
+  "carouselItem": "./packages/components/carouselItem/index.js"
 }

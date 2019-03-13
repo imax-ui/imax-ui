@@ -48,25 +48,41 @@
       style="margin-top: 100px;"
     >
       <im-slider v-model="sliderValue" />
-    </div>
-    
-    <div class="group">
-      <im-table
-        :columns="columns1"
-        :data="data1"
+      <div
+        class="group"
+        style="margin-top: 100px;"
       >
-        <template
-          slot="action"
-          slot-scope="{ row, index }"
+        <im-slider
+          v-model="sliderValue"
+          :step="20"
+          show-stops
+        />
+      </div>
+    
+      <div class="group carousel-div">
+        <im-carousel>
+          <im-carousel-item />
+        </im-carousel>
+      </div>
+    
+      <div class="group">
+        <im-table
+          :columns="columns1"
+          :data="data1"
         >
-          <im-button
-            type="warn"
-            @click="testAction(row, index)"
+          <template
+            slot="action"
+            slot-scope="{ row, index }"
           >
-            testAction
-          </im-button>
-        </template>
-      </im-table>
+            <im-button
+              type="warn"
+              @click="testAction(row, index)"
+            >
+              testAction
+            </im-button>
+          </template>
+        </im-table>
+      </div>
     </div>
   </div>
 </template>
@@ -81,7 +97,6 @@ export default {
       radioModel: '',
       checkBoxModel: false,
       selectModel: '',
-      sliderValue: 10,
       columns1: [
         {
           title: 'Name',
@@ -139,7 +154,8 @@ export default {
           address: 'Ottawa No. 2 Lake Park',
           birthday: 23423432423
         }
-      ]
+      ],
+      sliderValue: 0
     }
   },
   methods: {
@@ -184,6 +200,13 @@ export default {
 <style lang="scss" scoped>
 .group {
   margin: 20px 0;
+}
+
+.carousel-div {
+  width: 50%;
+  height: 200px;
+  margin: 0 auto;
+  background-color: #efefef;
 }
 </style>
 

@@ -4,7 +4,7 @@
 
 /* Colors
 -------------------------- */
-$color-primary: #3FAAF5 !default;
+$color-primary: #3faaf5 !default;
 $color-success: #13ce66 !default;
 $color-warning: #f5a700 !default;
 $color-error: #e11617 !default;
@@ -14,11 +14,14 @@ $color-info: #318bff !default;
 -------------------------- */
 $transition-all: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
 $transition-fade: opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) !default;
-$transition-md-fade: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) !default;
+$transition-md-fade: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+  opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) !default;
 $transition-color: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
 $transition-border: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
-
 
 /* alert
 -------------------------- */
 $alert-font-size: 14px !default;
+
+/* carousel
+-------------------------- */
