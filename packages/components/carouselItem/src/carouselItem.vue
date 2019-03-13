@@ -1,5 +1,5 @@
 <template>
-  <div class="imax-CarouselItem">CarouselItem</div>
+  <div class="imax-carousel__item">CarouselItem</div>
 </template>
 
 <script>

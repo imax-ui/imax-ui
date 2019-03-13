@@ -59,7 +59,7 @@ export default ${upperCamelName};
       filename: resolve(`./packages/components/${camelName}/src/${camelName}.vue`),
       content: `\
 <template>
-  <div class="imax-${componentName}">${componentName}</div>
+  <div>${componentName}</div>
 </template>
 
 <script>
@@ -76,9 +76,6 @@ export default {
       content: `\
 @import '../var.scss';
 @import '../mixins/mixins.scss';
-
-@include b(${componentName}) {
-}
 
 `
     },

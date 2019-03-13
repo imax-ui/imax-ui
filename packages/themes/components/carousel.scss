@@ -1,6 +1,8 @@
 @import '../var.scss';
 @import '../mixins/mixins.scss';
 
-@include b(Carousel) {
+@include b(carousel) {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
-

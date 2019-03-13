@@ -1,6 +1,7 @@
 @import '../var.scss';
 @import '../mixins/mixins.scss';
 
-@include b(CarouselItem) {
+@include b(carousel) {
+  @include e(item) {
+  }
 }
-
