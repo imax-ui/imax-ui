@@ -8,6 +8,7 @@
         测试alert
       </im-button>
     </div>
+
     <div class="group">
       <im-button
         type="warn"
@@ -42,10 +43,31 @@
       </im-button>
     </div>
 
-    <div class="group" style="margin-top: 100px;">
-      <im-slider v-model="sliderValue"></im-slider>
+    <div
+      class="group"
+      style="margin-top: 100px;"
+    >
+      <im-slider v-model="sliderValue" />
     </div>
     
+    <div class="group">
+      <im-table
+        :columns="columns1"
+        :data="data1"
+      >
+        <template
+          slot="action"
+          slot-scope="{ row, index }"
+        >
+          <im-button
+            type="warn"
+            @click="testAction(row, index)"
+          >
+            testAction
+          </im-button>
+        </template>
+      </im-table>
+    </div>
   </div>
 </template>
 
@@ -59,7 +81,65 @@ export default {
       radioModel: '',
       checkBoxModel: false,
       selectModel: '',
-      sliderValue: 10
+      sliderValue: 10,
+      columns1: [
+        {
+          title: 'Name',
+          key: 'name'
+        },
+        {
+          title: 'Age',
+          key: 'age'
+        },
+        {
+          title: 'Address',
+          key: 'address'
+        },
+        {
+          title: 'Birthday',
+          key: 'birthday',
+          render: (h, { row }) => {
+            const date = new Date(parseInt(row.birthday));
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            const birthday = `${year}-${month}-${day}`;
+            return h('span', birthday);
+          }
+        },
+        {
+          title: 'Action',
+          slot: 'action',
+          width: 150,
+          align: 'center'
+        }
+      ],
+      data1: [
+        {
+          name: 'John Brown',
+          age: 18,
+          address: 'New York No. 1 Lake Park',
+          birthday: 123123123123
+        },
+        {
+          name: 'Jim Green',
+          age: 24,
+          address: 'London No. 1 Lake Park',
+          birthday: 12312312312
+        },
+        {
+          name: 'Joe Black',
+          age: 30,
+          address: 'Sydney No. 1 Lake Park',
+          birthday: 324234234
+        },
+        {
+          name: 'Jon Snow',
+          age: 26,
+          address: 'Ottawa No. 2 Lake Park',
+          birthday: 23423432423
+        }
+      ]
     }
   },
   methods: {
@@ -88,6 +168,14 @@ export default {
       this.$Alert({
         message: this.switchValue
       });
+    },
+    testAction(col, index) {
+      this.$Confirm({
+        message: `col: ${col}, index: ${index}`,
+        title: 'test',
+        onConfirm: () => { console.log('confirm') },
+        onCancel: () => { console.log('cancel') }
+      });  
     }
   }
 }

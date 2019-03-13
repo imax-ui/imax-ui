@@ -1,5 +1,8 @@
 <template>
-  <div class="imax-slider" ref="slider">
+  <div
+    ref="slider"
+    class="imax-slider"
+  >
     <div
       :style="{width: count + '%'}"
       class="imax-slider__bar" 
@@ -40,10 +43,9 @@
 <script>
 export default {
   name: 'ImSlider',
-  data() {
-    return {
-      count: this.value >= 0 && this.value <= 100 ? this.value : 0,
-      countOpacityStyle: ''
+  filters: {
+    filterCount(val) {
+      return Math.round(val)
     }
   },
   props: {
@@ -69,14 +71,15 @@ export default {
     vertical: Boolean,
     height: String,
   },
+  data() {
+    return {
+      count: this.value >= 0 && this.value <= 100 ? this.value : 0,
+      countOpacityStyle: ''
+    }
+  },
   watch: {
     count(val) {
       this.$emit('input', Number(val))
-    }
-  },
-  filters: {
-    filterCount(val) {
-      return Math.round(val)
     }
   },
   mounted() {

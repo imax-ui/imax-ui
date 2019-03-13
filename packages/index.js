@@ -18,6 +18,7 @@ import Option from './components/option';
 import Dropdown from './components/dropdown';
 import Switch from './components/switch';
 import Slider from './components/slider';
+import Table from './components/table';
 
 /* Message */
 import Message from './components/message';
@@ -38,7 +39,8 @@ const components = [
   Option,
   Dropdown,
   Switch,
-  Slider
+  Slider,
+  Table
 ];
 
 const messages = [
