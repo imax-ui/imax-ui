@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file
 
+# [0.5.7](https://github.com/imax-ui/imax-ui/releases/tag/v0.5.7) (2019-03-13)
+
+### Features
+
+* add table component ([0a7f334](https://github.com/BYChoo/imax-ui/commit/0a7f334))
+* add slider component ([5e9cb46](https://github.com/BYChoo/imax-ui/commit/5e9cb46))
+* add carousel component ([e9dbe63](https://github.com/BYChoo/imax-ui/commit/e9dbe63))
+
+
 # [0.5.6](https://github.com/BYChoo/imax-ui/tree/v0.5.6) (2019-03-05)
 
 ### Bug Fixes
