@@ -43,7 +43,7 @@
     </div>
 
     <div class="group" style="margin-top: 100px;">
-      <im-slider v-model="sliderValue"></im-slider>
+      <im-slider v-model="sliderValue" :step="20" show-stops></im-slider>
     </div>
     
   </div>
@@ -59,7 +59,7 @@ export default {
       radioModel: '',
       checkBoxModel: false,
       selectModel: '',
-      sliderValue: 10
+      sliderValue: 0
     }
   },
   methods: {
@@ -88,7 +88,7 @@ export default {
       this.$Alert({
         message: this.switchValue
       });
-    }
+    },
   }
 }
 </script>
