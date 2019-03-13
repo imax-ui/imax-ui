@@ -47,7 +47,9 @@
     </div>
     
     <div class="group carousel-div">
-      <im-carousel>
+      <im-carousel arrow-show-type="hover" is-loop>
+        <im-carousel-item></im-carousel-item>
+        <im-carousel-item></im-carousel-item>
         <im-carousel-item></im-carousel-item>
       </im-carousel>
     </div>
@@ -108,7 +110,6 @@ export default {
   width: 50%;
   height: 200px;
   margin: 0 auto;
-  background-color: #efefef;
 }
 </style>
 
