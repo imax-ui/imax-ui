@@ -17,7 +17,7 @@
 - [ ] FormItem (**@zhijiang3**)
 - [ ] Slider(**@JL Guan**)
 - [ ] Upload
-- [ ] Table (**@BYChoo**)
+- [x] Table (**@BYChoo**)
 - [ ] Carousel (**@dimaLiang**)
 
 ## 样式
