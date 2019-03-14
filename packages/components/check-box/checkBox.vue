@@ -25,7 +25,10 @@
         @change="handleChange"
       >
     </span>
-    <span class="imax__checkbox--label">
+    <span
+      v-if="$slots.default || label"
+      class="imax__checkbox--label"
+    >
       <slot />
       <template v-if="!$slots.default">
         {{ label }}

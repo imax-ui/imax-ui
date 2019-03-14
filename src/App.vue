@@ -67,8 +67,10 @@
     
       <div class="group">
         <im-table
+          ref="multipleTable"
           :columns="columns1"
           :data="data1"
+          :checkbox="true"
         >
           <template
             slot="action"
@@ -82,6 +84,15 @@
             </im-button>
           </template>
         </im-table>
+      </div>
+
+      <div class="group">
+        <im-button
+          type="success"
+          @click="getTableData"
+        >
+          getTableData
+        </im-button>
       </div>
     </div>
   </div>
@@ -188,10 +199,12 @@ export default {
     testAction(col, index) {
       this.$Confirm({
         message: `col: ${col}, index: ${index}`,
-        title: 'test',
-        onConfirm: () => { console.log('confirm') },
-        onCancel: () => { console.log('cancel') }
+        title: 'test'
       });  
+    },
+    getTableData() {
+      const data = this.$refs.multipleTable.exportSelection();
+      console.log(data);
     }
   }
 }
