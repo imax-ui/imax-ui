@@ -9,7 +9,7 @@
 
 - [x] Alert (**@BYChoo**)
 - [x] Confirm (**@BYChoo**)
-- [ ] Prompt
+- [ ] Prompt (**@BYChoo**)
 - [ ] Notification
 - [ ] Loading
 - [x] Switch (**@zhijiang3**)
@@ -38,10 +38,6 @@
 
 - [ ] 统一组件结构
 - [ ] 引入popper.js，统一管理弹窗浮层
-
-## 生态
-
-- [ ] 页面展示
 
 ## 展示
 
