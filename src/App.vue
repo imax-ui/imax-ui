@@ -47,15 +47,13 @@
       class="group"
       style="margin-top: 100px;"
     >
-      <im-slider v-model="sliderValue" />
+      <im-slider v-model="sliderValue" vertical height="300px" />
       <div
         class="group"
         style="margin-top: 100px;"
       >
         <im-slider
           v-model="sliderValue"
-          :step="20"
-          show-stops
         />
       </div>
     
@@ -155,7 +153,7 @@ export default {
           birthday: 23423432423
         }
       ],
-      sliderValue: 0
+      sliderValue: 80
     }
   },
   methods: {

@@ -18,12 +18,38 @@
   }
 }
 
+$content-height: 6px;
+$button-translateX: 12px;
+$button-height: 26px;
+
 @include b(slider) {
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  @include m(vertical) {
+    @at-root flex-direction: column;
+    .imax-slider__content {
+      transform: rotate(180deg);
+      width: $content-height;
+      .imax-slider__button-wrapper {
+        top: 0;
+        left: 50%;
+      }
+      .imax-slider__count {
+        top: $content-height + $button-height + 5px;
+        transform: translateX(-50%) rotate(180deg);
+      }
+    }
+    .imax-slider__show-input {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  }
+
   @include e(content) {
     margin: 10px;
-    height: 6px;
+    height: $content-height;
     width: 500px;
     border-radius: 10px;
     position: relative;
@@ -52,8 +78,6 @@
       align-items: center;
     }
 
-    $button-translateX: 12px;
-    $button-height: 26px;
     @include e(button-wrapper) {
       width: $button-height;
       height: $button-height;
@@ -94,7 +118,7 @@
         transition: 0.4s;
         opacity: 0;
         position: absolute;
-        top: -$count-height - 12px;
+        top: -$count-height - 15px;
         background: black;
         width: 30px;
         height: $count-height;
@@ -154,8 +178,6 @@
     cursor: pointer;
     margin-left: 10px;
 
-
-
     @include e(show-input-content) {
       $btn-size: 30px;
 
@@ -173,6 +195,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
         >input {
           width: 100%;
           cursor: pointer;
@@ -197,11 +220,23 @@
         height: $btn-size - 1px;
         background: #f5f6f7;
         line-height: 27px;
+
+        &:hover {
+          color: $color-primary;
+        }
       }
 
       @include e(inc-button) {
         @extend .imax-slider__dec-button;
         border-radius: 0 3px 3px 0;
+      }
+
+      @include m(disabled-button) {
+        cursor: not-allowed;
+        color: #ccc;
+        &:hover {
+          color: #ccc;
+        }
       }
     }
   }

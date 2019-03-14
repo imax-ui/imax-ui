@@ -1,18 +1,22 @@
 <template>
-  <div class="imax-slider">
+  <div 
+    :class="vertical && 'imax-slider--vertical'"
+    class="imax-slider" 
+  >
     <div 
       ref="sliderContent" 
       :class="disabled && 'imax-slider__disabled'"
+      :style="height && vertical && {height}"
       class="imax-slider__content"
     >
       <div
-        :style="{width: count + '%'}"
+        :style="vertical ? {height: count + '%'} : {width: count + '%'}"
         class="imax-slider__bar" 
       />
       <div 
         ref="buttonWrapper"
         class="imax-slider__button-wrapper"
-        :style="{left: count + '%'}"
+        :style="vertical ? {top: count + '%'} : {left: count + '%'}"
       >
         <p class="imax-slider__button" />
 
@@ -46,7 +50,11 @@
 
     <div class="imax-slider__show-input">
       <div class="imax-slider__show-input-content">
-        <span class="imax-slider__dec-button">
+        <span 
+          :class="formatCount <= 0 && 'imax-slider--disabled-button'"
+          class="imax-slider__dec-button"
+          @click="changeCount(0)"
+        >
           -
         </span>
         <div 
@@ -55,13 +63,17 @@
         >
           <input
             ref="sliderInput"
+            v-model="formatCount"
             class="imax-slider__input"
             maxlength="3" 
             type="text"
-            v-model="formatCount"
           >
         </div>
-        <span class="imax-slider__inc-button">
+        <span 
+          :class="formatCount >= 100 && 'imax-slider--disabled-button'"
+          class="imax-slider__inc-button"
+          @click="changeCount(1)"
+        >
           +
         </span>
       </div>
@@ -103,7 +115,7 @@ export default {
     },
     formatTooltip: Function,
     vertical: Boolean,
-    height: String,
+    height: String
   },
   data() {
     return {
@@ -119,9 +131,9 @@ export default {
         return val
       },
       set(val) {
-        if(val < 0 || val > 100) return
-        if(!val) val = 0
-        this.count = val
+        if(!Number(val)) return
+        this.count = val >= 100 ? 100 : 
+          val <= 0 ? 0 :val
       }
     },
     formatCountPadding() {
@@ -143,18 +155,22 @@ export default {
   methods: {
     init() {
       const { buttonWrapper, sliderContent } = this.$refs
-      const { step } = this
-      const getCount = (clientX, startx) => (clientX - startx) / sliderContent.offsetWidth * 100
-      let isMove, startX, saveCount = 0
+      const { step, vertical } = this
+      const getCount = (client, start) => (client - start) / (vertical ? sliderContent.offsetHeight : sliderContent.offsetWidth) * 100
+      let isMove, startX, startY, saveCount = 0
 
       buttonWrapper.onmousedown = (e) => {
         isMove = true
         startX = e.clientX
+        startY = e.clientY
 
         window.onmousemove = (e) => {
           if(!isMove) return
           const X = e.clientX
+          const Y = e.clientY
           let count = getCount(X, startX)
+
+          if(vertical) count = getCount(startY, Y)
 
           saveCount += count
 
@@ -171,8 +187,10 @@ export default {
               count = 0
           }
 
+
           this.count += count
           startX = X
+          startY = Y
         }
         window.onmouseup = () => {
           this.countOpacityStyle = false
@@ -181,6 +199,18 @@ export default {
         }
       }
     },
+    changeCount(id) {
+      const { count } = this
+      let num = 0
+      if(id) {
+        if(count == 100) return
+        num = 1
+      }else {
+        if(count == 0) return
+        num = -1
+      }
+      this.count += num
+    }
   }
 }
 </script>
