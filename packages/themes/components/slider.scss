@@ -1,140 +1,160 @@
 @import '../var.scss';
 @import '../mixins/mixins.scss';
 
+@mixin sliderInputFocus($color) {
+  .imax-slider__input-wrapper {
+    border: solid $color;
+    border-width: 1px 0;
+  }
+  .imax-slider__dec-button {
+    border: 1px solid $color;
+    border-radius: 3px 0 0 3px;
+    border-right-color: #ccc;
+  }
+  .imax-slider__inc-button {
+    border-radius: 0 3px 3px 0;
+    border-right-color: $color;
+    border-left-color: #ccc;
+  }
+}
+
 @include b(slider) {
   display: flex;
   align-items: center;
   @include e(content) {
-  	margin: 10px;
-  	height: 6px;
-  	width: 500px;
-  	border-radius: 10px;
-  	position: relative;
-  	background: #e6e7e8;
+    margin: 10px;
+    height: 6px;
+    width: 500px;
+    border-radius: 10px;
+    position: relative;
+    background: #e6e7e8;
 
-  	@include e(disabled) {
-  		$disabled-color: #ccc;
-  		.imax-slider__bar {
-  			background: $disabled-color;
-  		}			
-  		.imax-slider__button {
-  			cursor: not-allowed;
-  			border-color: $disabled-color;
-  		}
-  	}
+    @include e(disabled) {
+      $disabled-color: #ccc;
+      .imax-slider__bar {
+        background: $disabled-color;
+      }
+      .imax-slider__button {
+        cursor: not-allowed;
+        border-color: $disabled-color;
+      }
+    }
 
-  	@include e(bar) {
-  		border-radius: 10px;
-  		position: absolute;
-  		background: $color-primary;
-  		height: 100%;
-  		width: 100%;
-  		left: 0;
-  		top: 0;
-  		display: flex;
-  		align-items: center;
-  	}
+    @include e(bar) {
+      border-radius: 10px;
+      position: absolute;
+      background: $color-primary;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      display: flex;
+      align-items: center;
+    }
 
-  	$button-translateX: 12px;
-  	$button-height: 26px;
-  	@include e(button-wrapper) {
-  		width: $button-height;
-  		height: $button-height;
-  		z-index: 100;
-  		background: transparent;
-  		position: absolute;
-  		left: 0;
-  		top: 50%;
-  		transform: translate(-50%, -50%);
+    $button-translateX: 12px;
+    $button-height: 26px;
+    @include e(button-wrapper) {
+      width: $button-height;
+      height: $button-height;
+      z-index: 100;
+      background: transparent;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(-50%, -50%);
 
-  		@include e(button) {
-  			transition: 0.2s;
-  			position: absolute;
-  			margin: 0;
-  			left: 50%;
-  			top: 50%;
-  			transform: translate(-50%, -50%);
-  			background: white;
-  			border: 2px solid $color-primary;
-  			border-radius: 50%;
-  			height: 16px;
-  			width: 16px;
-  		}
+      @include e(button) {
+        transition: 0.2s;
+        position: absolute;
+        margin: 0;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        border: 2px solid $color-primary;
+        border-radius: 50%;
+        height: 16px;
+        width: 16px;
+      }
 
-  		&:hover {
-  			.imax-slider__button {
-  				cursor: grab;
-  				transform: translate(-50%, -50%) scale(1.2);
-  			}
-  			.imax-slider__count {
-  				opacity: 1;
-  			}
-  		}
+      &:hover {
+        .imax-slider__button {
+          cursor: grab;
+          transform: translate(-50%, -50%) scale(1.2);
+        }
+        .imax-slider__count {
+          opacity: 1;
+        }
+      }
 
-  		$count-height: 33px;
+      $count-height: 33px;
 
-  		@include e(count) {
-  			transition: 0.4s;
-  			opacity: 0;
-  			position: absolute;
-  			top: -$count-height - 12px;
-  			background: black;
-  			width: 30px;
-  			height: $count-height;
-  			border-radius: 5px;
-  			left: 50%;
-  			transform: translateX(-50%);
+      @include e(count) {
+        transition: 0.4s;
+        opacity: 0;
+        position: absolute;
+        top: -$count-height - 12px;
+        background: black;
+        width: 30px;
+        height: $count-height;
+        border-radius: 5px;
+        left: 50%;
+        transform: translateX(-50%);
 
-  			&:after {
-  				content: "";
-  				position: absolute;
-  				left: 50%;
-  				transform: translateX(-50%);
-  				top: 30px;
-  				width: 0;
-  				height: 0;
-  				border-style: solid;
-  				border-width: 12px 9px 0 9px;
-  				border-color: black transparent transparent transparent;
-  			}
+        &:after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          top: 30px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 12px 9px 0 9px;
+          border-color: black transparent transparent transparent;
+        }
 
-  			> p {
-  				width: 100%;
-  				font-size: 12px;
-  				text-align: center;
-  				line-height: 33px;
-  				color: white;
-  				margin: 0 auto;
-  			}
-  		}
-  	}
+        >p {
+          width: 100%;
+          font-size: 12px;
+          text-align: center;
+          line-height: 33px;
+          color: white;
+          margin: 0 auto;
+        }
+      }
+    }
 
-  	@include m(show-stope) {
-  		height: 100%;
-  		width: 100%;
-  		overflow: hidden;
+    @include m(show-stope) {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
 
-  		@include e(steps) {
-  			height: 100%;
-  			width: 100%;
-  			display: flex;
-  			align-items: center;
+      @include e(steps) {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
 
-  			> p {
-  				position: absolute;
-  				margin: 0;
-  				background: white;
-  				height: 6px;
-  				width: 6px;
-  				transform: translateX(-50%);
-  				border-radius: 50%;
-  			}
-  		}
-  	}
+        >p {
+          position: absolute;
+          margin: 0;
+          background: white;
+          height: 6px;
+          width: 6px;
+          transform: translateX(-50%);
+          border-radius: 50%;
+        }
+      }
+    }
   }
 
   @include e(show-input) {
     cursor: pointer;
+    margin-left: 10px;
+
+
 
     @include e(show-input-content) {
       $btn-size: 30px;
@@ -153,7 +173,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        > input {
+        >input {
           width: 100%;
           cursor: pointer;
           text-align: center;
@@ -163,20 +183,11 @@
       }
 
       &:focus-within {
-        .imax-slider__input-wrapper {
-          border: solid $color-primary;
-          border-width: 1px 0;
-        }
-        .imax-slider__dec-button {
-          border: 1px solid $color-primary;
-          border-radius: 3px 0 0 3px;
-          border-right-color: #ccc;
-        }
-        .imax-slider__inc-button {
-          border-radius: 0 3px 3px 0;
-          border-right-color: $color-primary;
-          border-left-color: #ccc;
-        }
+        @include sliderInputFocus($color-primary);
+      }
+
+      &:hover {
+        @include sliderInputFocus($color-primary);
       }
 
       @include e(dec-button) {

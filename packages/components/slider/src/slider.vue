@@ -1,9 +1,7 @@
 <template>
-  <div 
-    ref="slider" 
-    class="imax-slider" 
-  >
+  <div class="imax-slider">
     <div 
+      ref="sliderContent" 
       :class="disabled && 'imax-slider__disabled'"
       class="imax-slider__content"
     >
@@ -60,6 +58,7 @@
             class="imax-slider__input"
             maxlength="3" 
             type="text"
+            v-model="formatCount"
           >
         </div>
         <span class="imax-slider__inc-button">
@@ -113,10 +112,17 @@ export default {
     }
   },
   computed: {
-    formatCount() {
-      const val = Math.round(this.count)
-      if(typeof this.formatTooltip === 'function') return this.formatTooltip(val)
-      return val
+    formatCount: {
+      get() {
+        const val = Math.round(this.count)
+        if(typeof this.formatTooltip === 'function') return this.formatTooltip(val)
+        return val
+      },
+      set(val) {
+        if(val < 0 || val > 100) return
+        if(!val) val = 0
+        this.count = val
+      }
     },
     formatCountPadding() {
       return this.formatCount.toString().length + 'px'
@@ -136,9 +142,9 @@ export default {
   },
   methods: {
     init() {
-      const { buttonWrapper, slider } = this.$refs
+      const { buttonWrapper, sliderContent } = this.$refs
       const { step } = this
-      const getCount = (clientX, startx) => (clientX - startx) / slider.offsetWidth * 100
+      const getCount = (clientX, startx) => (clientX - startx) / sliderContent.offsetWidth * 100
       let isMove, startX, saveCount = 0
 
       buttonWrapper.onmousedown = (e) => {
@@ -157,11 +163,14 @@ export default {
           if(this.count <= 0 && count <= 0) return this.count = 0
           if(this.count >= 100 && count >= 0) return this.count = 100
 
-          if(saveCount >= step / 2) {
-            count = step
-            saveCount = 0
-          } else 
-            count = 0
+          if(step > 1) {
+            if(saveCount >= step / 2) {
+              count = step
+              saveCount = 0
+            } else 
+              count = 0
+          }
+
           this.count += count
           startX = X
         }
