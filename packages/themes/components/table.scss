@@ -31,3 +31,15 @@
   }
 }
 
+.imax-table__tr {
+  &:hover {
+    background-color: #f7f7f7;
+  }
+}
+
+/* stripe
+-------------------------- */
+.imax-table__tr--stripe {
+  background: #fafafa;
+}
+

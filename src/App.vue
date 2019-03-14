@@ -70,7 +70,8 @@
           ref="multipleTable"
           :columns="columns1"
           :data="data1"
-          :checkbox="true"
+          checkbox
+          stripe
         >
           <template
             slot="action"
@@ -111,7 +112,8 @@ export default {
       columns1: [
         {
           title: 'Name',
-          key: 'name'
+          key: 'name',
+          width: 100
         },
         {
           title: 'Age',

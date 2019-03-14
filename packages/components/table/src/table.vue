@@ -1,6 +1,9 @@
 <template>
   <table
     class="imax-table"
+    :class="[{
+      'imax-table--stripe': stripe
+    }]"
     :border="0"
   >
     <thead>
@@ -18,6 +21,7 @@
         <th
           v-for="(col, index) in columns"
           :key="index"
+          :style="{width: getColWidth(col.width)}"
           class="imax-table__th"
         >
           {{ col.title }}
@@ -28,14 +32,18 @@
       <tr
         v-for="(row, rowIndex) in data"
         :key="rowIndex"
+        class="imax-table__tr"
+        :class="[{
+          'imax-table__tr--stripe': filterStripeName(rowIndex)
+        }]"
       > 
         <td
           v-if="checkbox"
           class="imax-table__td"
         >
           <ImCheckbox
-            :value="findData(row)"
-            @change="toggleSelect($event, row)"
+            :value="findData(rowIndex)"
+            @change="toggleSelect($event, rowIndex)"
           />
         </td>
         <td
@@ -90,6 +98,10 @@ export default {
     checkbox: {
       type: Boolean,
       default: false
+    },
+    stripe: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -109,21 +121,28 @@ export default {
     }
   },
   methods: {
-    toggleSelect(event, row) {
-      const stringify = JSON.stringify(row);
-      if (this.selected.includes(stringify)) {
-        const index = this.selected.indexOf(stringify);
+    filterStripeName(rowIndex) {
+      if (!this.stripe) return false;
+      return rowIndex % 2 === 1 ? true : false;
+      
+    },
+    getColWidth(width) {
+      return width ? width + 'px' : '';
+    },
+    toggleSelect(event, rowIndex) {
+      if (this.selected.includes(rowIndex)) {
+        const index = this.selected.indexOf(rowIndex);
         this.selected.splice(index, 1);
       }
       else {
-        this.selected.push(stringify);
+        this.selected.push(rowIndex);
       }
     },
-    findData(row) {
-      return this.selected.includes(JSON.stringify(row));
+    findData(rowIndex) {
+      return this.selected.includes(rowIndex);
     },
     exportSelection() {
-      return this.selected.map(item => JSON.parse(item));
+      return this.selected.map(index => this.data[index]);
     },
     toggleAllSelect() {
       this.allSelect = !this.allSelect;
