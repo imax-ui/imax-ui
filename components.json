@@ -18,5 +18,5 @@
   "confirm": "./packages/components/confirm/index.js",
   "table": "./packages/components/table/index.js",
   "carousel": "./packages/components/carousel/index.js",
-  "carouselItem": "./packages/components/carouselItem/index.js"
+  "carouselItem": "./packages/components/carousel-item/index.js"
 }

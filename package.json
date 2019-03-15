@@ -16,7 +16,8 @@
     "lint": "vue-cli-service lint",
     "lib": "vue-cli-service build --target lib --name imax-ui ./packages/index.js",
     "test": "karma start test/karma.conf.js --auto-watch",
-    "new:component": "node build/new-component.js"
+    "new:component": "node build/new-component.js",
+    "build:entry": "node build/build-entry.js"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.5",
@@ -38,6 +39,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.32",
     "karma-webpack": "^3.0.5",
+    "lodash.kebabcase": "^4.1.1",
     "mocha": "^5.2.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",

@@ -61,6 +61,10 @@ $--switch-active-fill: $color-primary !default;
     .imax-switch__inner {
       opacity: 0.4;
       cursor: not-allowed;
+
+      &:active:after {
+        width: $--switch-inner-size;
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 import Vue from 'vue';
 
-export declare interface slider extends Vue {
+export declare interface Slider extends Vue {
 }
 

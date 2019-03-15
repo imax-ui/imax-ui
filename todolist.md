@@ -32,7 +32,7 @@
 ## 工程化
 
 - [x] 自动创建组件对应文件，利用.d.ts文件引导 (**@zhijiang3**)
-- [ ] 自动生成 packages/index.js 文件
+- [x] 自动生成 packages/index.js 文件 (**@zhijiang3**)
 
 ## 改造
 

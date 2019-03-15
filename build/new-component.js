@@ -4,6 +4,7 @@ const fileSave = require('file-save');
 const componentsFile = require('../components.json');
 const camelCase = require('camelcase');
 const upperCamelCase = require('uppercamelcase');
+const kebabCase = require('lodash.kebabcase');
 const resolve = dir => path.join(__dirname, '../', dir);
 
 function ask() {
@@ -31,6 +32,7 @@ function ask() {
 function generateConf({ componentName }) {
   const camelName = camelCase(componentName);
   const upperCamelName = upperCamelCase(componentName);
+  const kebabName = kebabCase(componentName);
 
   componentsFile[camelName] = `./packages/components/${camelName}/index.js`;
 
@@ -42,7 +44,7 @@ function generateConf({ componentName }) {
     },
     {
       /* 组件的入口文件 */
-      filename: resolve(`./packages/components/${camelName}/index.js`),
+      filename: resolve(`./packages/components/${kebabName}/index.js`),
       content: `\
 import ${upperCamelName} from './src/${camelName}.vue';
 
@@ -51,12 +53,11 @@ ${upperCamelName}.install = function(Vue) {
 }
 
 export default ${upperCamelName};
-
 `
     },
     {
       /* 组件文件 */
-      filename: resolve(`./packages/components/${camelName}/src/${camelName}.vue`),
+      filename: resolve(`./packages/components/${kebabName}/src/${camelName}.vue`),
       content: `\
 <template>
   <div>${componentName}</div>
@@ -67,7 +68,6 @@ export default {
   name: 'Im${upperCamelName}'
 }
 </script>
-
 `
     },
     {
@@ -76,25 +76,23 @@ export default {
       content: `\
 @import '../var.scss';
 @import '../mixins/mixins.scss';
-
 `
     },
     {
       /* d.ts 文件 */
-      filename: resolve(`./types/${componentName}.d.ts`),
+      filename: resolve(`./types/${upperCamelName}.d.ts`),
       content: `\
 import Vue from 'vue';
 
 export declare interface ${upperCamelName} extends Vue {
 }
-
 `
     },
     {
       /* 测试文件 */
-      filename: resolve(`./test/specs/${componentName}.spec.js`),
+      filename: resolve(`./test/specs/${kebabName}.spec.js`),
       content: `\
-import ${upperCamelName} from 'packages/components/${componentName}/src/${camelName}.vue';
+import ${upperCamelName} from 'packages/components/${kebabName}/src/${camelName}.vue';
 import { shallowMount } from '@vue/test-utils';
 import { expect } from 'chai';
 
@@ -105,7 +103,6 @@ describe('${upperCamelName}', function() {
     expect(el.classList.contains('imax-${componentName}')).to.be.true;
   });
 });
-
 `
     }
   ];

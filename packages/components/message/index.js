@@ -1,2 +1,7 @@
 import Message from './src/main';
-export default Message;
+
+export default {
+  install(Vue) {
+    Vue.prototype.$Message = Message;
+  }
+};

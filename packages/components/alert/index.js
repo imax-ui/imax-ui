@@ -1,2 +1,7 @@
 import main from './src/main';
-export default main;
+
+export default {
+  install(Vue) {
+    Vue.prototype.$Alert = main;
+  }
+};
