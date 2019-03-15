@@ -47,7 +47,7 @@
     </div>
     
     <div class="group carousel-div">
-      <im-carousel arrow-show-type="hover" is-loop>
+      <im-carousel arrow-show-type="hover" loop autoplay>
         <im-carousel-item></im-carousel-item>
         <im-carousel-item></im-carousel-item>
         <im-carousel-item></im-carousel-item>

@@ -10,15 +10,17 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
+    width: $carousel-arrow-size;
+    height: $carousel-arrow-size;
+    line-height: $carousel-arrow-size;
     text-align: center;
     color: $carousel-arrow-color;
     background-color: $carousel-arrow-bgcolor;
     border-radius: 50%;
     cursor: pointer;
-    transition: transform 0.1s;
+    transition: transform 0.3s;
+    user-select: none;
+    z-index: 10;
 
     @include m(left) {
       left: 15px;
