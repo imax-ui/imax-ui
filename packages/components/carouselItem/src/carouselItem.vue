@@ -22,15 +22,15 @@ export default {
     };
   },
   methods: {
-    updateHandle(currentIndex, index) {
+    updateHandle(itemsLength, currentIndex, index) {
       this.index = index;
       this.currentIndex = currentIndex;
       if (currentIndex === index) {
         this.translateX = 0;
         return;
       }
+      
       const { offsetWidth } = this.$parent.$el;
-      const itemsLength = this.$parent.$data.items.length;
 
       if (currentIndex === 0 && index === itemsLength - 1) {
         this.translateX = 0 - offsetWidth;

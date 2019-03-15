@@ -84,7 +84,6 @@ export default {
     this.intervalTimer && clearInterval(this.intervalTimer);
   },
   mounted() {
-    this.items = this.$children.map(item => item)
     this.updateItems();
     if (this.autoplay) {
       this.initInterval();
@@ -93,7 +92,7 @@ export default {
   methods: {
     updateItems() {
       this.items = this.$children.map((item, index) => {
-        item.updateHandle(this.currentIndex, index);
+        item.updateHandle(this.$children.length, this.currentIndex, index);
         return item;
       });
     },
