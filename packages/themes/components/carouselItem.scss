@@ -3,5 +3,10 @@
 
 @include b(carousel) {
   @include e(item) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s;
+    text-align: center;
   }
 }

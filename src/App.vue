@@ -57,11 +57,13 @@
         />
       </div>
     
-      <div class="group carousel-div">
-        <im-carousel>
-          <im-carousel-item />
-        </im-carousel>
-      </div>
+    <div class="group carousel-div">
+      <im-carousel arrow-show-type="hover" loop autoplay>
+        <im-carousel-item></im-carousel-item>
+        <im-carousel-item></im-carousel-item>
+        <im-carousel-item></im-carousel-item>
+      </im-carousel>
+    </div>
     
       <div class="group">
         <im-table
@@ -219,7 +221,6 @@ export default {
   width: 50%;
   height: 200px;
   margin: 0 auto;
-  background-color: #efefef;
 }
 </style>
 
