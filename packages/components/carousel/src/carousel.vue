@@ -7,30 +7,28 @@
     <slot></slot>
 
     <template v-if="arrowShowType !== 'never'">
-      <transition name="carousel-arrow-left">
-        <div 
-          :class="['imax-carousel__arrow', 'imax-carousel--left']"
-          v-show="(isLoopCom || currentIndex > 0) && touch"
-          @click="clickArrowHandle('left')">
-          ←
-        </div>
-      </transition>
-      <transition name="carousel-arrow-right">
-        <div 
-          :class="['imax-carousel__arrow', 'imax-carousel--right']"
-          v-show="(isLoopCom || currentIndex < items.length - 1) && touch"
-          @click="clickArrowHandle('right')">
-          →
-        </div>
-      </transition>
+      <div 
+        :class="[
+          'imax-carousel__arrow', 
+          'imax-carousel--left', 
+          (loop || currentIndex > 0) && touch && 'imax-carousel--showleft']"
+        @click="clickArrowHandle('left')">
+        ←
+      </div>
+      <div 
+        :class="[
+          'imax-carousel__arrow', 
+          'imax-carousel--right', 
+          (loop || currentIndex < items.length - 1) && touch && 'imax-carousel--showright']"
+        @click="clickArrowHandle('right')">
+        →
+      </div>
     </template>
 
   </div>
 </template>
 
 <script>
-
-import { setInterval, clearInterval } from 'timers';
 
 export default {
   name: 'ImCarousel',
@@ -75,11 +73,6 @@ export default {
       this.initInterval();
     }
   },
-  computed: {
-    isLoopCom() {
-      return this.loop && this.items.length > 2;
-    }
-  },
   beforeDestroy() {
     this.intervalTimer && clearInterval(this.intervalTimer);
   },
@@ -91,15 +84,19 @@ export default {
   },
   methods: {
     updateItems() {
-      this.items = this.$children.map((item, index) => {
-        item.updateHandle(this.$children.length, this.currentIndex, index);
-        return item;
+      this.items = this.$children.filter((child, index) => {
+        const isChildren = child.$options.name === 'ImCarouselItem';
+        if (isChildren) {
+          child.updateHandle(this.$children.length, this.currentIndex, index);
+        }
+        return isChildren;
       });
     },
     initInterval() {
+      if (this.$children.length < 2) return;
       const isNum = !isNaN(this.interval) && this.interval > 0;
       this.intervalTimer = setInterval(() => {
-        if (!this.isLoopCom) {
+        if (!this.loop) {
           if (this.currentIndex === this.items.length - 1 && this.autoplayNextMode === 'right') {
             this.autoplayNextMode = 'left';
           }
@@ -122,7 +119,7 @@ export default {
     clickArrowHandle(type) {
       const [isHead, isLast] = [this.currentIndex < 1, this.currentIndex >= this.$children.length - 1];
       if ((isHead && type === 'left') || (isLast && type === 'right')) {
-        if(!this.isLoopCom) return;
+        if(!this.loop) return;
         this.currentIndex = isHead ? this.items.length - 1 : 0;
         this.updateItems();
         return;
