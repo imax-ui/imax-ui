@@ -99,6 +99,13 @@ export default {
       if (typeof this.onConfirm === 'function') {
         this.onCancel(this);
       }
+    },
+    close() {
+      this.opened = false;
+      this.closed = true;
+      if (typeof this.onClose === 'function') {
+        this.onClose(this);
+      }
     }
   }
 }
