@@ -18,29 +18,28 @@
     background-color: $carousel-arrow-bgcolor;
     border-radius: 50%;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: all 0.3s;
     user-select: none;
     z-index: 10;
+    opacity: 0;
 
     @include m(left) {
-      left: 15px;
+      left: 0px;
     }
     @include m(right) {
-      right: 15px;
+      right: 0px;
+    }
+    @include m(showleft) {
+      opacity: 1;
+      left: $carousel-arrow-position;
+    }
+    @include m(showright) {
+      opacity: 1;
+      right: $carousel-arrow-position;
     }
 
     &:hover {
       background-color: $carousel-arrow-bgcolor-hover;
     }
   }
-}
-
-.carousel-arrow-left-enter,
-.carousel-arrow-left-leave-active {
-  transform: translateY(-50%) translateX(-10px);
-}
-
-.carousel-arrow-right-enter,
-.carousel-arrow-right-leave-active {
-  transform: translateY(-50%) translateX(10px);
 }
