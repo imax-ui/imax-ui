@@ -147,7 +147,7 @@ export default {
     toggleAllSelect() {
       this.allSelect = !this.allSelect;
       if (this.allSelect) {
-        this.selected = this.data.map(row => JSON.stringify(row))
+        this.selected = this.data.map((row, index) => index)
       }
       else {
         this.selected = [];
