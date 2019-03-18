@@ -1,3 +1,7 @@
+<p align="center">
+  <img height="150"  width="150" src="https://github.com/imax-ui/imax-ui/blob/master/public/logo.png"/>
+</p>
+
 # imax-ui
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/ByChoo/imax-ui.svg)
