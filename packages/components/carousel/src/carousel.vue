@@ -19,11 +19,25 @@
         :class="[
           'imax-carousel__arrow', 
           'imax-carousel--right', 
-          (loop || currentIndex < items.length - 1) && touch && 'imax-carousel--showright']"
+          (loop || currentIndex < itemsLength - 1) && touch && 'imax-carousel--showright'
+        ]"
         @click="clickArrowHandle('right')">
         →
       </div>
     </template>
+
+    <ul class="imax-carousel__indicator">
+      <li 
+        v-for="(indicator, index) in itemsLength" 
+        :key="`indicator_${indicator}`" 
+        class="imax-carousel--indicator-item">
+        <div 
+          :class="[
+          'imax-carousel__indicator-button',
+          currentIndex === index && 'imax-carousel__indicator-current'
+        ]"></div>
+      </li>
+    </ul>
 
   </div>
 </template>
@@ -34,7 +48,7 @@ export default {
   name: 'ImCarousel',
   data() {
     return {
-      items: [],
+      itemsLength: 0,
       currentIndex: 0,
       touch: false,
       intervalTimer: null,
@@ -57,6 +71,10 @@ export default {
     interval: {
       type: Number,
       default: 3000
+    },
+    indicator: {
+      type: Boolean,
+      default: false
     }
   },
   watch: {
@@ -84,20 +102,21 @@ export default {
   },
   methods: {
     updateItems() {
-      this.items = this.$children.filter((child, index) => {
+      const items = this.$children.filter((child, index) => {
         const isChildren = child.$options.name === 'ImCarouselItem';
         if (isChildren) {
           child.updateHandle(this.$children.length, this.currentIndex, index);
         }
         return isChildren;
       });
+      this.itemsLength = items.length;
     },
     initInterval() {
       if (this.$children.length < 2) return;
       const isNum = !isNaN(this.interval) && this.interval > 0;
       this.intervalTimer = setInterval(() => {
         if (!this.loop) {
-          if (this.currentIndex === this.items.length - 1 && this.autoplayNextMode === 'right') {
+          if (this.currentIndex === this.itemsLength - 1 && this.autoplayNextMode === 'right') {
             this.autoplayNextMode = 'left';
           }
           else if (this.currentIndex === 0 && this.autoplayNextMode === 'left') {
@@ -120,7 +139,7 @@ export default {
       const [isHead, isLast] = [this.currentIndex < 1, this.currentIndex >= this.$children.length - 1];
       if ((isHead && type === 'left') || (isLast && type === 'right')) {
         if(!this.loop) return;
-        this.currentIndex = isHead ? this.items.length - 1 : 0;
+        this.currentIndex = isHead ? this.itemsLength - 1 : 0;
         this.updateItems();
         return;
       }

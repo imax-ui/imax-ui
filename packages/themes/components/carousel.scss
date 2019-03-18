@@ -42,4 +42,44 @@
       background-color: $carousel-arrow-bgcolor-hover;
     }
   }
+
+  @include e(indicator) {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0;
+    padding: 8px 0;
+    z-index: 3;
+
+    @include m(indicator-item) {
+      display: inline-block;
+      width: 20px;
+      margin-right: 6px;
+      padding: 6px 0;
+      cursor: pointer;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover .imax-carousel__indicator-button {
+        opacity: 1;
+      }
+
+      .imax-carousel__indicator-button {
+        opacity: 0.4;
+        height: 2px;
+        background-color: $carousel-indicator-bgcolor;
+        border-radius: 10px;
+      }
+      .imax-carousel__indicator-current {
+        opacity: 1;
+      }
+    }
+  }
 }
