@@ -21,13 +21,15 @@
 $content-height: 6px;
 $button-translateX: 12px;
 $button-height: 26px;
+$show-input-width: 120px;
 
 @include b(slider) {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 
   @include m(vertical) {
+    width: $show-input-width;
     @at-root flex-direction: column;
     .imax-slider__content {
       transform: rotate(180deg);
@@ -182,7 +184,7 @@ $button-height: 26px;
       $btn-size: 30px;
 
       height: $btn-size;
-      width: 120px;
+      width: 70px;
       display: flex;
       align-items: center;
       text-align: center;
@@ -205,12 +207,25 @@ $button-height: 26px;
         }
       }
 
-      &:focus-within {
-        @include sliderInputFocus($color-primary);
+      @include m(input-no-controls) {
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        &:focus-within,
+        &:hover {
+          border-color: $color-primary;
+        }
       }
 
-      &:hover {
-        @include sliderInputFocus($color-primary);
+      @include m(has-controls) {
+        @at-root width: $show-input-width;
+        @at-root {
+          &:focus-within {
+            @include sliderInputFocus($color-primary);
+          }
+          &:hover {
+            @include sliderInputFocus($color-primary);
+          }
+        }
       }
 
       @include e(dec-button) {

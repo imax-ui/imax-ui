@@ -53,7 +53,10 @@
         style="margin-top: 100px;"
       >
         <im-slider
+          show-input
           v-model="sliderValue"
+          show-stops
+          :step="16"
         />
       </div>
     
@@ -168,7 +171,7 @@ export default {
           birthday: 23423432423
         }
       ],
-      sliderValue: 80
+      sliderValue: 0
     }
   },
   methods: {
