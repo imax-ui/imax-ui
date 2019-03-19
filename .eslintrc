@@ -14,6 +14,7 @@
   "rules": {
     "vue/no-parsing-error": [2, { "x-invalid-end-tag": false }],
     "no-console": "off",
-    "indent": [2, 2]
+    "indent": [2, 2],
+    "semi": [2, "always"]
   }
 }

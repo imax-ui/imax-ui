@@ -169,7 +169,7 @@ export default {
         isMove = true;
         startX = e.clientX;
         startY = e.clientY;
-      }
+      };
 
       window.addEventListener('mousemove', (e) => {
         if(!isMove) return;
@@ -200,12 +200,12 @@ export default {
         this.count += count;
         startX = X;
         startY = Y;
-      })
+      });
 
       window.addEventListener('mouseup', () => {
         this.countOpacityStyle = false;
         isMove = false;
-      })
+      });
     },
     changeCount(id) {
       const { count, step } = this;
@@ -220,5 +220,5 @@ export default {
       this.count += num;
     }
   }
-}
+};
 </script>
