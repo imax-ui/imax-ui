@@ -8,6 +8,7 @@
       :class="disabled && 'imax-slider__disabled'"
       :style="height && vertical && {height: height || 0}"
       class="imax-slider__content"
+      @click="jumpCount"
     >
       <div
         :style="vertical ? {height: count + '%'} : {width: count + '%'}"
@@ -18,7 +19,7 @@
         class="imax-slider__button-wrapper"
         :style="vertical ? {top: count + '%'} : {left: count + '%'}"
       >
-        <p class="imax-slider__button" />
+        <div class="imax-slider__button" />
 
         <div 
           v-if="showTooltip"
@@ -74,7 +75,7 @@
             v-model="formatCount"
             class="imax-slider__input"
             maxlength="3" 
-            type="text"
+            type="tel"
           >
         </div>
         <span 
@@ -127,7 +128,7 @@ export default {
     return {
       count: this.value >= 0 && this.value <= 100 ? this.value : 0,
       countOpacityStyle: ''
-    }
+    };
   },
   computed: {
     formatCount: {
@@ -137,7 +138,7 @@ export default {
         return val;
       },
       set(val) {
-        if(!Number(val) || (val / this.step) % 1 !== 0) return;
+        if(!Number(val)) return;
         this.count = val >= 100 ? 100 : 
           val <= 0 ? 0 : val;
       }
@@ -151,7 +152,11 @@ export default {
   },
   watch: {
     count(val) {
+      this.$emit('change', Number(val));
       this.$emit('input', Number(val));
+    },
+    value() {
+      this.formatCount = this.value;
     }
   },
   mounted() {
@@ -164,6 +169,10 @@ export default {
       const { step, vertical } = this;
       const getCount = (client, start) => (client - start) / (vertical ? sliderContent.offsetHeight : sliderContent.offsetWidth) * 100;
       let isMove, startX, startY, saveCount = 0;
+
+      buttonWrapper.onclick = (e) => {
+        e.stopPropagation();
+      };
 
       buttonWrapper.onmousedown = (e) => {
         isMove = true;
@@ -218,6 +227,14 @@ export default {
         num = step > 1 ? -step : -1;
       }
       this.count += num;
+    },
+    jumpCount(e) {
+      const { step, vertical } = this;
+      const { sliderContent } = this.$refs;
+      let count = (e.pageX - sliderContent.offsetLeft) / sliderContent.offsetWidth * 100;
+      if(vertical) count = 100 - (e.pageY - sliderContent.offsetTop) / sliderContent.offsetHeight * 100;
+      if(step > 1) count = Math.round(count / step) * step;
+      this.count = count;
     }
   }
 };

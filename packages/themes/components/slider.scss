@@ -39,7 +39,7 @@ $show-input-width: 120px;
         left: 50%;
       }
       .imax-slider__count {
-        top: $content-height + $button-height + 5px;
+        top: $content-height + $button-height + 7px;
         transform: translateX(-50%) rotate(180deg);
       }
     }
@@ -56,6 +56,10 @@ $show-input-width: 120px;
     border-radius: 10px;
     position: relative;
     background: #e6e7e8;
+
+    &:hover {
+      cursor: pointer;
+    }
 
     @include e(disabled) {
       $disabled-color: #ccc;
@@ -102,21 +106,20 @@ $show-input-width: 120px;
         border-radius: 50%;
         height: 16px;
         width: 16px;
-      }
-
-      &:hover {
-        .imax-slider__button {
+        &:hover {
           cursor: grab;
           transform: translate(-50%, -50%) scale(1.2);
         }
-        .imax-slider__count {
-          opacity: 1;
-        }
+      }
+
+      .imax-slider__button:hover + .imax-slider__count {
+        opacity: 1;
       }
 
       $count-height: 33px;
 
       @include e(count) {
+        pointer-events: none;
         transition: 0.4s;
         opacity: 0;
         position: absolute;
