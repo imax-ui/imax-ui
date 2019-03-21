@@ -21,6 +21,7 @@ import Confirm from './components/confirm';
 import Table from './components/table';
 import Carousel from './components/carousel';
 import CarouselItem from './components/carousel-item';
+import Loading from './components/loading';
 
 const components = [
   Alert,
@@ -51,6 +52,8 @@ const install = function(Vue) {
   components.map(component => {
     Vue.use(component);
   });
+
+  Vue.use(Loading.directive);
 
   install.installed = true;
 };

@@ -47,26 +47,34 @@
       class="group"
       style="margin-top: 100px;"
     >
-      <im-slider v-model="sliderValue" vertical height="300px" />
+      <im-slider
+        v-model="sliderValue"
+        vertical
+        height="300px"
+      />
       <div
         class="group"
         style="margin-top: 100px;"
       >
         <im-slider
-          show-input
           v-model="sliderValue"
+          show-input
           show-stops
           :step="16"
         />
       </div>
     
-    <div class="group carousel-div">
-      <im-carousel arrow-show-type="hover" loop autoplay>
-        <im-carousel-item></im-carousel-item>
-        <im-carousel-item></im-carousel-item>
-        <im-carousel-item></im-carousel-item>
-      </im-carousel>
-    </div>
+      <div class="group carousel-div">
+        <im-carousel
+          arrow-show-type="hover"
+          loop
+          autoplay
+        >
+          <im-carousel-item />
+          <im-carousel-item />
+          <im-carousel-item />
+        </im-carousel>
+      </div>
     
       <div class="group">
         <im-table
@@ -98,6 +106,21 @@
           getTableData
         </im-button>
       </div>
+
+      <div class="group">
+        <div
+          v-loading="testLoading"
+          class="loading-box"
+        />
+      </div>
+
+      <div class="group">
+        <im-switch
+          v-model="testLoading"
+          :active-value="true"
+          :inactive-value="false"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -107,6 +130,7 @@ export default {
   name: 'App',
   data() {
     return {
+      testLoading: true,
       switchValue: 'active',
       inputModel: '',
       radioModel: '',
@@ -172,14 +196,14 @@ export default {
         }
       ],
       sliderValue: 0
-    }
+    };
   },
   methods: {
     testAlert() {
       this.$Alert({
         message: 'test',
         title: 'test',
-        onClose: () => { console.log('close') }
+        onClose: () => { console.log('close'); }
       });
     },
     testMessage() {
@@ -192,8 +216,8 @@ export default {
       this.$Confirm({
         message: 'test',
         title: 'test',
-        onConfirm: () => { console.log('confirm') },
-        onCancel: () => { console.log('cancel') }
+        onConfirm: () => { console.log('confirm'); },
+        onCancel: () => { console.log('cancel'); }
       });
     },
     handleSwitchChange() {
@@ -212,7 +236,7 @@ export default {
       console.log(data);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -224,6 +248,12 @@ export default {
   width: 50%;
   height: 200px;
   margin: 0 auto;
+}
+
+.loading-box {
+  height: 200px;
+  width: 100px;
+  border: 1px solid #ccc;
 }
 </style>
 
