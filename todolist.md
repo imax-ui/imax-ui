@@ -9,9 +9,8 @@
 
 - [x] Alert (**@BYChoo**)
 - [x] Confirm (**@BYChoo**)
-- [ ] Prompt (**@BYChoo**)
 - [ ] Notification
-- [ ] Loading
+- [ ] Loading (**@BYChoo**)
 - [x] Switch (**@zhijiang3**)
 - [ ] Form (**@zhijiang3**)
 - [ ] FormItem (**@zhijiang3**)
