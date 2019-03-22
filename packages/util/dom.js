@@ -10,7 +10,7 @@ const trim = function(string) {
  * 判断dom是否包含目标类名
  *
  * @param {dom} el
- * @param {String || Array} cls 
+ * @param {String|Array} cls 
  */
 export function hasClass(el, cls) {
   if (!el || !cls) return false;
@@ -26,7 +26,7 @@ export function hasClass(el, cls) {
  * 向目标节点添加类名
  *
  * @param {dom} el
- * @param {String || Array} cls 
+ * @param {String|Array} cls 
  */
 export function addClass(el, cls) {
   if (!el) return;
@@ -52,7 +52,7 @@ export function addClass(el, cls) {
  * 目标节点移除类名
  *
  * @param {dom} el
- * @param {String || Array} cls 
+ * @param {String|Array} cls 
  */
 export function removeClass(el, cls) {
   if (!el || !cls) return;
