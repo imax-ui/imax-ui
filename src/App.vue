@@ -61,10 +61,10 @@
           show-input
           show-stops
           :step="16"
-        />
+        />   
       </div>
     
-      <div class="group carousel-div">
+      <!-- <div class="group carousel-div">
         <im-carousel
           arrow-show-type="hover"
           loop
@@ -74,7 +74,7 @@
           <im-carousel-item />
           <im-carousel-item />
         </im-carousel>
-      </div>
+      </div> -->
     
       <div class="group">
         <im-table
@@ -251,8 +251,8 @@ export default {
 }
 
 .loading-box {
-  height: 200px;
-  width: 100px;
+  height: 500px;
+  width: 900px;
   border: 1px solid #ccc;
 }
 </style>

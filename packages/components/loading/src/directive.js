@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Loading from './loading';
-// import { addClass, removeClass, getStyle } from 'packages/utils/dom';
+import { addClass } from 'packages/util/dom';
 const Mask = Vue.extend(Loading);
 
 Vue.extend(Loading);
@@ -22,18 +22,20 @@ loadingDirective.install = Vue => {
   };
 
   const insertDom = (parent, el) => {
+    addClass(parent, 'im-loading__parent--relative');
     parent.appendChild(el.mask);
     el.instance.visible = true;
+    
   };
 
   Vue.directive('loading', {
     bind: function(el, binding) {
-      console.log('-----------------------');
-      console.log('bind');
       const mask = new Mask({
         el: document.createElement('div'),
         data: {}
       });
+      console.log('-----------------------');
+      console.log(mask);
       el.instance = mask;
       el.mask = mask.$el;
       el.maskStyle = {};

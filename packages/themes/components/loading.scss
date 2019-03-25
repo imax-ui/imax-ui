@@ -1,0 +1,81 @@
+@import '../var.scss';
+@import '../mixins/mixins.scss';
+
+@include b(loading) {
+  /* mask
+  -------------------------- */
+  @include e(mask) {
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    background-color: hsla(0,0%,100%,.9);
+    z-index: -1;
+    visibility: hidden;
+    text-align: center;
+    transition: opacity .5s;
+  }
+
+  /* circular
+  -------------------------- */
+  @include e(circular) {
+    position: absolute;
+    z-index: 11;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 42px;
+    svg {
+      width: 42px;
+      height: 42px;
+      transition: opacity .5s;
+      transform-origin: center center;
+      animation: loading-rotate 2s linear infinite;
+      .circle {
+        stroke-dasharray: 90,150;
+        stroke-dashoffset: 0;
+        stroke-width: 2;
+        stroke: #45b984;
+        stroke-linecap: round;
+        animation: loading-path-rotate 1.5s ease-in-out infinite;
+      }
+    }
+  }
+}
+
+/* keyframes
+-------------------------- */
+@keyframes loading-rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes loading-path-rotate {
+  0% {
+    stroke-dasharray: 1,200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89,200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89,200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+/* loading__visible
+-------------------------- */
+.imax-loading__visible {
+  visibility: visible;
+  z-index: 10;
+}
+
+/* parent--relative
+-------------------------- */
+.im-loading__parent--relative {
+  position: relative;
+}
