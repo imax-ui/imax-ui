@@ -79,6 +79,7 @@
       <div class="group">
         <im-table
           ref="multipleTable"
+          v-loading="testLoading"
           :columns="columns1"
           :data="data1"
           checkbox
@@ -111,7 +112,9 @@
         <div
           v-loading="testLoading"
           class="loading-box"
-        />
+        >
+          asdasdasda
+        </div>
       </div>
 
       <div class="group">

@@ -36,7 +36,7 @@
         stroke-dasharray: 90,150;
         stroke-dashoffset: 0;
         stroke-width: 2;
-        stroke: #45b984;
+        stroke: $color-primary;
         stroke-linecap: round;
         animation: loading-path-rotate 1.5s ease-in-out infinite;
       }
@@ -71,6 +71,7 @@
 -------------------------- */
 .imax-loading__visible {
   visibility: visible;
+  opacity: 1;
   z-index: 10;
 }
 
@@ -78,4 +79,9 @@
 -------------------------- */
 .im-loading__parent--relative {
   position: relative;
+}
+
+.imax-loading-fade-enter,
+.imax-loading-fade-leave-active {
+  opacity: 0;
 }

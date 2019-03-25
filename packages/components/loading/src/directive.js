@@ -34,8 +34,6 @@ loadingDirective.install = Vue => {
         el: document.createElement('div'),
         data: {}
       });
-      console.log('-----------------------');
-      console.log(mask);
       el.instance = mask;
       el.mask = mask.$el;
       el.maskStyle = {};
