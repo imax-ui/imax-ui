@@ -51,6 +51,8 @@
         v-model="sliderValue"
         vertical
         height="300px"
+        :step="16"
+        show-stops
       />
       <div
         class="group"
@@ -60,6 +62,8 @@
           v-model="sliderValue"
           show-input
           show-stops
+          input-size="mini"
+          tooltip-class="asd"
           :step="16"
         />   
       </div>
@@ -245,6 +249,10 @@ export default {
 <style lang="scss" scoped>
 .group {
   margin: 20px 0;
+}
+
+.asd {
+  color: yellow;
 }
 
 .carousel-div {

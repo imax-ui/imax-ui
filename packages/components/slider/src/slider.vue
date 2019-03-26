@@ -6,7 +6,7 @@
     <div 
       ref="sliderContent" 
       :class="disabled && 'imax-slider__disabled'"
-      :style="height && vertical && {height: height || 0}"
+      :style="vertical && height && {height}"
       class="imax-slider__content"
       @click="jumpCount"
     >
@@ -28,6 +28,7 @@
             {padding: `0 ${formatCountPadding}`}
           ]"
           class="imax-slider__count"
+          :class="tooltipClass"
         >
           <p>{{ formatCount }}</p>
         </div>
@@ -43,7 +44,9 @@
           <p 
             v-for="(item, i) in stopsList" 
             :key="item"
-            :style="{left: step * (i + 1) + '%'}"
+            :style="vertical 
+              ? {top: step * (i + 1) + '%', transform: 'translateY(-50%)'} 
+              : {left: step * (i + 1) + '%'}"
           />
         </div>
       </div>
@@ -52,6 +55,7 @@
     <div 
       v-if="showInput"
       class="imax-slider__show-input"
+      :class="inputSizeClass"
     >
       <div 
         :class="showInputControls && 'imax-slider--has-controls'"
@@ -119,18 +123,34 @@ export default {
       default: true
     },
     showInput: Boolean,
-    showInputControls: Boolean,
+    showInputControls: {
+      type: Boolean,
+      default: true
+    },
     formatTooltip: Function,
     vertical: Boolean,
-    height: String
+    height: String,
+    inputSize: {
+      type: String,
+      default: 'small'
+    },
+    tooltipClass: String
   },
   data() {
     return {
-      count: this.value >= 0 && this.value <= 100 ? this.value : 0,
+      saveValue: this.value, 
       countOpacityStyle: ''
     };
   },
   computed: {
+    count: {
+      get() {
+        return this.saveValue >= 0 && this.saveValue <= 100 ? this.saveValue : 0;
+      },
+      set(val) {
+        this.saveValue = val;
+      }
+    },
     formatCount: {
       get() {
         const val = Math.round(this.count);
@@ -148,6 +168,25 @@ export default {
     },
     stopsList() {
       return new Array(~~(100 / this.step) - (100 % this.step ? 0 : 1));
+    },
+    inputSizeClass() {
+      let className = 'imax-slider--input-',
+        name = '';
+      switch (this.inputSize) {
+      case 'large':
+        name = 'large';
+        break;
+      case 'medium':
+        name = 'medium';
+        break;
+      case 'small':
+        className = '';
+        break;
+      case 'mini': 
+        name = 'mini';
+        break;
+      }
+      return className + name;
     }
   },
   watch: {
@@ -155,8 +194,8 @@ export default {
       this.$emit('change', Number(val));
       this.$emit('input', Number(val));
     },
-    value() {
-      this.formatCount = this.value;
+    value(val) {
+      this.count = val;
     }
   },
   mounted() {
