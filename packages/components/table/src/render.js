@@ -11,7 +11,7 @@ export default {
       row: ctx.props.row,
       column: ctx.props.column,
       index: ctx.props.index
-    }
+    };
     return ctx.props.render(h, params);
   }
-}
+};

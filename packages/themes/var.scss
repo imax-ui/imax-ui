@@ -30,3 +30,10 @@ $carousel-arrow-bgcolor: rgba(0, 0, 0, 0.3) !default;
 $carousel-arrow-bgcolor-hover: rgba(0, 0, 0, 0.4) !default;
 $carousel-arrow-size: 30px !default;
 $carousel-arrow-position: 15px !default;
+
+/* switch
+-------------------------- */
+$switch-height: 22px !default;
+$switch-inner-size: 18px !default;
+$switch-fill: rgba(0, 0, 0, 0.25) !default;
+$switch-active-fill: $color-primary !default;

@@ -27,7 +27,7 @@ export default {
     fontSize() {
       const type = Object.prototype.toString.call(this.size);
       if (type === "[object Number]") {
-        return `${this.size}px`
+        return `${this.size}px`;
       }
       else {
         return this.size;

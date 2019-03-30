@@ -8,4 +8,4 @@ module.exports = {
       .set('packages', resolve('packages'))
       .set('test', resolve('test'));
   }
-}
+};

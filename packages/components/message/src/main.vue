@@ -31,7 +31,7 @@ export default {
       duration: 2000,
       timer: null,
       closed: false
-    }
+    };
   },
   computed: {
     messageClassName() {
@@ -40,11 +40,11 @@ export default {
     iconClasName() {
       switch (this.type) {  
       case 'success':
-        return 'icon-success'
+        return 'icon-success';
       case 'error':
-        return 'icon-error'
+        return 'icon-error';
       default:
-        return 'icon-warning'
+        return 'icon-warning';
       }
     },
   },
@@ -81,5 +81,5 @@ export default {
       }
     },
   }
-}
+};
 </script>

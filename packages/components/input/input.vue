@@ -18,11 +18,11 @@
       class="imax__input--inner"
       :class="[
         {
-          'imax__input--disabled': disabled
+          'imax__input--disabled': textareaDisabled
         }
       ]"
       :placeholder="placeholder"
-      :disabled="disabled"
+      :disabled="textareaDisabled"
       :readonly="readOnly"
       @input="handleInput"
       @focus="handleFocus"
@@ -41,8 +41,16 @@
 </template>
 
 <script>
+import Emitter from 'packages/mixins/emitter';
+
 export default {
   name: 'ImInput',
+  inject: {
+    imForm: {
+      default: ''
+    }
+  },
+  mixins: [Emitter],
   props: {
     value: {
       type: String,
@@ -80,13 +88,13 @@ export default {
   data() {
     return {
       focused: false
-    }
+    };
   },
   computed: {
     inputFontSize() {
       const type = Object.prototype.toString.call(this.fontSize);
       if (type === "[object Number]") {
-        return `${this.fontSize}px`
+        return `${this.fontSize}px`;
       }
       else {
         return this.fontSize;
@@ -97,6 +105,9 @@ export default {
     },
     isSuffix() {
       return this.suffixIcon && this.suffixIcon !== '';
+    },
+    textareaDisabled() {
+      return this.disabled || (this.imForm || {}).disabled;
     }
   },
   methods: {
@@ -104,6 +115,7 @@ export default {
       const value = e.target.value;
       if (value === this.value) return;
       this.$emit('input', value);
+      this.dispatch('ImFormItem', 'im-form.change');
     },
     handleFocus() {
       this.focused = true;
@@ -112,6 +124,7 @@ export default {
     handleBlur() {
       this.focused = false;
       this.$emit('blur');
+      this.dispatch('ImFormItem', 'im-form.blur');
     }
   }
 };

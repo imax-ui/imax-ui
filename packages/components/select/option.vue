@@ -36,7 +36,7 @@ export default {
     return {
       selected: false,
       hover: false
-    }
+    };
   },
   created() {
     this.$on('change', this.handleChange);
@@ -52,5 +52,5 @@ export default {
       }
     }
   }
-}
+};
 </script>

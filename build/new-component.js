@@ -50,7 +50,7 @@ import ${upperCamelName} from './src/${camelName}.vue';
 
 ${upperCamelName}.install = function(Vue) {
   Vue.component(${upperCamelName}.name, ${upperCamelName});
-}
+};
 
 export default ${upperCamelName};
 `
@@ -66,7 +66,7 @@ export default ${upperCamelName};
 <script>
 export default {
   name: 'Im${upperCamelName}'
-}
+};
 </script>
 `
     },

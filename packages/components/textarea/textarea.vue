@@ -8,11 +8,11 @@
       class="imax__textarea--inner"
       :class="[
         {
-          'imax__textarea--disabled': disabled
+          'imax__textarea--disabled': inputDisabled
         }
       ]"
       :placeholder="placeholder"
-      :disabled="disabled"
+      :disabled="inputDisabled"
       @input="handleInput"
       @focus="handleFocus"
       @blur="handleBlur"
@@ -20,8 +20,12 @@
   </div>
 </template>
 <script>
+import Emitter from 'packages/mixins/emitter';
+
 export default {
   name: 'ImTextarea',
+  mixins: [Emitter],
+  inject: ['imForm'],
   props: {
     value: {
       type: String,
@@ -44,11 +48,14 @@ export default {
     inputFontSize() {
       const type = Object.prototype.toString.call(this.fontSize);
       if (type === "[object Number]") {
-        return `${this.fontSize}px`
+        return `${this.fontSize}px`;
       }
       else {
         return this.fontSize;
       }
+    },
+    inputDisabled() {
+      return this.disabled || (this.imForm || {}).disabled;
     }
   },
   methods: {
@@ -56,13 +63,15 @@ export default {
       const value = e.target.value;
       if (value === this.value) return;
       this.$emit('input', value);
+      this.dispatch('ImFormItem', 'im-form.change');
     },
     handleFocus() {
       this.$emit('focus');
     },
     handleBlur() {
       this.$emit('blur');
+      this.dispatch('ImFormItem', 'im-form.blur');
     }
   }
-}
+};
 </script>

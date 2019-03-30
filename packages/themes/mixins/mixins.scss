@@ -10,10 +10,10 @@
  *    @include when(disabled) {}
  *  }
  *  output =>
- *  .iMax-button {}
- *  .iMax-button__inner {}
- *  .iMax-button--suffix {}
- *  .iMax-button.is-disabled {}
+ *  .imax-button {}
+ *  .imax-button__inner {}
+ *  .imax-button--suffix {}
+ *  .imax-button.is-disabled {}
  */
 
 @mixin b($block) {

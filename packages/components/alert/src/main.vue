@@ -45,7 +45,7 @@ export default {
       closed: false,
       onClose: null,
       opened: false
-    }
+    };
   },
   watch: {
     visible(val) {
@@ -76,5 +76,5 @@ export default {
       }
     },
   }
-}
+};
 </script>

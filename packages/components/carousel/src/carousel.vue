@@ -2,9 +2,9 @@
   <div 
     class="imax-carousel"
     @mouseenter.stop="event => mouseActivityHandle(true)"
-    @mouseleave.stop="event => mouseActivityHandle(false)">
-
-    <slot></slot>
+    @mouseleave.stop="event => mouseActivityHandle(false)"
+  >
+    <slot />
 
     <template v-if="arrowShowType !== 'never'">
       <div 
@@ -12,7 +12,8 @@
           'imax-carousel__arrow', 
           'imax-carousel--left', 
           (loop || currentIndex > 0) && touch && 'imax-carousel--showleft']"
-        @click="clickArrowHandle('left')">
+        @click="clickArrowHandle('left')"
+      >
         ←
       </div>
       <div 
@@ -20,11 +21,11 @@
           'imax-carousel__arrow', 
           'imax-carousel--right', 
           (loop || currentIndex < items.length - 1) && touch && 'imax-carousel--showright']"
-        @click="clickArrowHandle('right')">
+        @click="clickArrowHandle('right')"
+      >
         →
       </div>
     </template>
-
   </div>
 </template>
 
@@ -32,15 +33,6 @@
 
 export default {
   name: 'ImCarousel',
-  data() {
-    return {
-      items: [],
-      currentIndex: 0,
-      touch: false,
-      intervalTimer: null,
-      autoplayNextMode: 'right'
-    };
-  },
   props: {
     arrowShowType: {
       type: String,
@@ -58,6 +50,15 @@ export default {
       type: Number,
       default: 3000
     }
+  },
+  data() {
+    return {
+      items: [],
+      currentIndex: 0,
+      touch: false,
+      intervalTimer: null,
+      autoplayNextMode: 'right'
+    };
   },
   watch: {
     arrowShowType(val) {
@@ -129,5 +130,5 @@ export default {
       this.updateItems();
     }
   }
-}
+};
 </script>

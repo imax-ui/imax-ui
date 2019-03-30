@@ -108,7 +108,7 @@ export default {
     return {
       allSelect: false,
       selected: []
-    }
+    };
   },
   watch: {
     selected(list) {
@@ -147,13 +147,13 @@ export default {
     toggleAllSelect() {
       this.allSelect = !this.allSelect;
       if (this.allSelect) {
-        this.selected = this.data.map((row, index) => index)
+        this.selected = this.data.map((row, index) => index);
       }
       else {
         this.selected = [];
       }
     }
   }
-}
+};
 </script>
 

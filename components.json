@@ -18,5 +18,8 @@
   "confirm": "./packages/components/confirm/index.js",
   "table": "./packages/components/table/index.js",
   "carousel": "./packages/components/carousel/index.js",
-  "carouselItem": "./packages/components/carousel-item/index.js"
+  "carouselItem": "./packages/components/carousel-item/index.js",
+  "loading": "./packages/components/loading/index.js",
+  "form": "./packages/components/form/index.js",
+  "formItem": "./packages/components/formItem/index.js"
 }

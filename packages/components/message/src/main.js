@@ -12,7 +12,7 @@ const Message = function(options = {}) {
   if (typeof options === 'string') {
     options = {
       message: options
-    }
+    };
   }
 
   let userOnClose = options.onClose;
@@ -24,7 +24,7 @@ const Message = function(options = {}) {
 
   instance = new MessageConstructor({
     data: options
-  })
+  });
   instance.id = _id;
 
   instance.vm = instance.$mount();
@@ -34,7 +34,7 @@ const Message = function(options = {}) {
   instance.dom.style.zIndex = ++zIndex;
   instances.push(instance);
   return instance;
-}
+};
 
 Message.close = function(id, userOnClose) {
   for (let i = 0, len = instances.length; i < len; i++) {
@@ -46,7 +46,7 @@ Message.close = function(id, userOnClose) {
       break;
     }
   }
-}
+};
 
 Message.componentName = 'Message';
 

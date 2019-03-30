@@ -12,7 +12,7 @@ const Alert = function(options) {
   if (typeof options === 'string') {
     options = {
       message: options
-    }
+    };
   }
 
   let userOnClose = options.onClose;
@@ -34,7 +34,7 @@ const Alert = function(options) {
   instance.dom.style.zIndex = ++zIndex;
   instances.push(instance);
   return instance;
-}
+};
 
 Alert.close = function(id, userOnClose) {
   for (let i = 0, len = instances.length; i < len; i++) {
@@ -46,7 +46,7 @@ Alert.close = function(id, userOnClose) {
       break;
     }
   }
-}
+};
 
 Alert.componentName = 'Alert';
 

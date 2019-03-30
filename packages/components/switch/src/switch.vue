@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       isActive: false
-    }
+    };
   },
 
   watch: {
@@ -66,6 +66,6 @@ export default {
       this.$emit('input', this.isActive ? this.activeValue : this.inactiveValue);
     }
   }
-}
+};
 </script>
 

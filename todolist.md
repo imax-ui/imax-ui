@@ -12,8 +12,8 @@
 - [ ] Notification
 - [ ] Loading (**@BYChoo**)
 - [x] Switch (**@zhijiang3**)
-- [ ] Form (**@zhijiang3**)
-- [ ] FormItem (**@zhijiang3**)
+- [x] Form (**@zhijiang3**)
+- [x] FormItem (**@zhijiang3**)
 - [ ] Slider(**@JL Guan**)
 - [ ] Upload
 - [x] Table (**@BYChoo**)

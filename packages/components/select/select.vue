@@ -37,7 +37,7 @@ export default {
       readOnly: true,
       inputWidth: null,
       isShowDropdown: false
-    }
+    };
   },
   created() {
     this.$on('select', this.change);
@@ -54,7 +54,7 @@ export default {
         this.currentPlaceholder = val;
         this.$emit('input', val);
         this.broadcast('Option','change', val);
-      })
+      });
     },
     handleFocus() {
       setTimeout(() => {
@@ -77,5 +77,5 @@ export default {
       }, 100);
     }
   }
-}
+};
 </script>

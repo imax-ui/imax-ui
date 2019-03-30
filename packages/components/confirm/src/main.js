@@ -12,7 +12,7 @@ const Confirm = function(options) {
   if (typeof options === 'string') {
     options = {
       message: options
-    }
+    };
   }
 
   let userOnCancel = options.onCancel;
@@ -39,7 +39,7 @@ const Confirm = function(options) {
   instance.dom.style.zIndex = ++zIndex;
   instances.push(instance);
   return instance;
-}
+};
 
 Confirm.close = function(id, userOnCancel) {
   for (let i = 0, len = instances.length; i < len; i++) {
@@ -51,7 +51,7 @@ Confirm.close = function(id, userOnCancel) {
       break;
     }
   }
-}
+};
 
 Confirm.confirm = function(id, userOnConfirm) {
   for (let i = 0, len = instances.length; i < len; i++) {
@@ -63,7 +63,7 @@ Confirm.confirm = function(id, userOnConfirm) {
       break;
     }
   }
-}
+};
 
 Confirm.componentName = 'Confirm';
 

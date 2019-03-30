@@ -24,7 +24,7 @@ export default {
       const ret = {};
       if (this.gutter) {
         ret.marginLeft = `-${this.gutter / 2}px`,
-        ret.marginRight = `-${this.gutter / 2}px`
+        ret.marginRight = `-${this.gutter / 2}px`;
       }
       return ret;
     }
@@ -39,5 +39,5 @@ export default {
       style: this.style
     }, this.$slots.default);
   }
-}
+};
 </script>

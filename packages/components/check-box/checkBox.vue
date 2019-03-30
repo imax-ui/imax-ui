@@ -38,8 +38,11 @@
 </template>
 
 <script>
+import Emitter from 'packages/mixins/emitter';
+
 export default {
   name: 'ImCheckbox',
+  mixins: [Emitter],
   props: {
     value: {
       type: [String, Number, Boolean],
@@ -70,7 +73,8 @@ export default {
   methods: {
     handleChange() {
       this.$emit('change', this.model);
+      this.dispatch('ImFormItem', 'im-form.change');
     }
   }
-}
+};
 </script>

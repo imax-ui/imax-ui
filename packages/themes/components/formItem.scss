@@ -1,0 +1,70 @@
+@import '../var.scss';
+@import '../mixins/mixins.scss';
+@import '../utils.scss';
+
+@include b(form-item) {
+  margin-bottom: 30px;
+
+  & .imax-form-item {
+    margin-bottom: 0;
+  }
+
+  @include e(label) {
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+    font-size: 14px;
+    line-height: 40px;
+    color: #606266;
+    padding: 0 12px 0 0;
+    box-sizing: border-box;
+  }
+
+  @include e(content) {
+    line-height: 40px;
+    position: relative;
+    @include utils-clearfix;
+  }
+
+  @include e(error) {
+    color: $color-error;
+    font-size: 14px;
+    line-height: 1.25;
+    padding-top: 6px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+
+  @include when(success) {
+    .imax__input--inner,
+    .imax__textarea--inner {
+      &,
+      &:focus {
+        border-color: $color-success;
+      }
+    }
+  }
+
+  @include when(error) {
+    .imax__input--inner,
+    .imax__textarea--inner {
+      &,
+      &:focus {
+        border-color: $color-error;
+      }
+    }
+  }
+
+  @include when(required) {
+    .imax-form-item__label {
+      &:before {
+        content: '*';
+        color: $color-error;
+        display: inline-block;
+        margin-right: 4px;
+      }
+    }
+  }
+}

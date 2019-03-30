@@ -1,0 +1,24 @@
+@import '../var.scss';
+@import '../mixins/mixins.scss';
+
+@include b(form) {
+  display: block;
+
+  @include m(inline) {
+    & .imax-form-item {
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+
+    & .imax-form-item__label {
+      float: none;
+      display: inline-block;
+    }
+
+    & .imax-form-item__content {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+}

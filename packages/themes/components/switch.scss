@@ -1,11 +1,6 @@
 @import '../var.scss';
 @import '../mixins/mixins.scss';
 
-$--switch-height: 22px !default;
-$--switch-inner-size: 18px !default;
-$--switch-fill: rgba(0, 0, 0, 0.25) !default;
-$--switch-active-fill: $color-primary !default;
-
 @include b(switch) {
   display: inline-block;
   margin: 0;
@@ -22,18 +17,18 @@ $--switch-active-fill: $color-primary !default;
     margin: 0;
     padding: 0;
     transition: background 0.3s;
-    background-color: $--switch-fill;
-    height: $--switch-height;
-    border-radius: $--switch-height;
+    background-color: $switch-fill;
+    height: $switch-height;
+    border-radius: $switch-height;
     width: 40px;
 
     &:after {
       content: "";
       left: 2px;
-      top: ($--switch-height - $--switch-inner-size) / 2;
-      width: $--switch-inner-size;
-      height: $--switch-inner-size;
-      border-radius: $--switch-inner-size;
+      top: ($switch-height - $switch-inner-size) / 2;
+      width: $switch-inner-size;
+      height: $switch-inner-size;
+      border-radius: $switch-inner-size;
       background-color: #fff;
       position: absolute;
       z-index: 1;
@@ -41,13 +36,13 @@ $--switch-active-fill: $color-primary !default;
     }
 
     &:active:after {
-      width: $--switch-inner-size + 5px;
+      width: $switch-inner-size + 5px;
     }
   }
 
   @include when(active) {
     .imax-switch__inner {
-      background-color: $--switch-active-fill;
+      background-color: $switch-active-fill;
 
       &:after {
         left: 100%;
@@ -63,7 +58,7 @@ $--switch-active-fill: $color-primary !default;
       cursor: not-allowed;
 
       &:active:after {
-        width: $--switch-inner-size;
+        width: $switch-inner-size;
       }
     }
   }

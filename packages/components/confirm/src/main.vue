@@ -63,7 +63,7 @@ export default {
       onCancel: null,
       onConfirm: null,
       opened: false
-    }
+    };
   },
   watch: {
     visible(val) {
@@ -108,5 +108,5 @@ export default {
       }
     }
   }
-}
+};
 </script>

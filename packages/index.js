@@ -22,6 +22,8 @@ import Table from './components/table';
 import Carousel from './components/carousel';
 import CarouselItem from './components/carousel-item';
 import Loading from './components/loading';
+import Form from './components/form';
+import FormItem from './components/form-item';
 
 const components = [
   Alert,
@@ -43,7 +45,10 @@ const components = [
   Confirm,
   Table,
   Carousel,
-  CarouselItem
+  CarouselItem,
+  Loading,
+  Form,
+  FormItem
 ];
 
 const install = function(Vue) {
@@ -52,8 +57,6 @@ const install = function(Vue) {
   components.map(component => {
     Vue.use(component);
   });
-
-  Vue.use(Loading.directive);
 
   install.installed = true;
 };
@@ -79,5 +82,8 @@ export default {
   Confirm,
   Table,
   Carousel,
-  CarouselItem
+  CarouselItem,
+  Loading,
+  Form,
+  FormItem
 };

@@ -1,5 +1,21 @@
 <template>
   <div id="app">
+    <div>
+      <im-input />
+    </div>
+
+    <div>
+      <im-form label-width="80px" :model="form.model" :rules="form.rules">
+        <im-form-item label-width="120px" required prop="name">
+          <span slot="label">姓名：</span>
+          <im-input v-model="form.model.name" />
+        </im-form-item>
+        <im-form-item prop="nickname" label="昵称：">
+          <im-input v-model="form.model.nickname" />
+        </im-form-item>
+      </im-form>
+    </div>
+
     <div class="group">
       <im-button
         type="warn"
@@ -137,6 +153,12 @@ export default {
   name: 'App',
   data() {
     return {
+      form: {
+        rules: {
+          nickname: { trigger: 'blur', type: 'string', max: 10, message: '昵称不能超过10个字符' }
+        },
+        model: {}
+      },
       testLoading: true,
       switchValue: 'active',
       inputModel: '',
