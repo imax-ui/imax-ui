@@ -10,5 +10,11 @@ export declare interface Carousel extends Vue {
 
   interval: number;
 
+  initialIndex: number;
+
   indicator: boolean;
+
+  indicatorTrigger: string;
+
+  indicatorPosition: string;
 }

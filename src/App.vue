@@ -59,9 +59,35 @@
           :step="16"
         />
       </div>
-    
+
+    <div class="carousel-ref" :style="{textAlign: 'center'}">
+      <im-button
+        :style="{margin: '10px 10px'}"
+        @click="() => $refs.carousel.prev()">
+        prev
+      </im-button>
+      <im-button
+        :style="{margin: '10px 10px'}"
+        @click="() => $refs.carousel.next()">
+        next
+      </im-button>
+      <im-button
+        :style="{margin: '10px 10px'}"
+        v-for="(item, index) in 3"
+        :key="`test_carousel_refs_${index}`"
+        @click="() => $refs.carousel.checkoutActiveItem(index)">
+        {{ index }}
+      </im-button>
+    </div>
     <div class="group carousel-div">
-      <im-carousel arrow-show-type="hover" loop autoplay>
+      <im-carousel 
+        ref="carousel"
+        arrow-show-type="hover" 
+        loop 
+        :autoplay="false" 
+        :initial-index="0"
+        indicator
+        indicator-trigger="hover">
         <im-carousel-item></im-carousel-item>
         <im-carousel-item></im-carousel-item>
         <im-carousel-item></im-carousel-item>
@@ -218,12 +244,6 @@ export default {
 <style lang="scss" scoped>
 .group {
   margin: 20px 0;
-}
-
-.carousel-div {
-  width: 50%;
-  height: 200px;
-  margin: 0 auto;
 }
 </style>
 

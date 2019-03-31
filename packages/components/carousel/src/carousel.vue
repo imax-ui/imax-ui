@@ -1,6 +1,8 @@
 <template>
   <div 
-    class="imax-carousel"
+    :class="[
+      'imax-carousel',
+      indicatorPosition === 'outside' && 'imax-carousel__indicator-outside']"
     @mouseenter.stop="event => mouseActivityHandle(true)"
     @mouseleave.stop="event => mouseActivityHandle(false)">
 
@@ -26,16 +28,18 @@
       </div>
     </template>
 
-    <ul class="imax-carousel__indicator">
+    <ul class="imax-carousel__indicator" v-if="indicator">
       <li 
-        v-for="(indicator, index) in itemsLength" 
-        :key="`indicator_${indicator}`" 
-        class="imax-carousel--indicator-item">
+        v-for="(item, index) in itemsLength" 
+        :key="`indicator_${item}`" 
+        class="imax-carousel--indicator-item"
+        @click.stop="() => indicatorHandle(index, 'click')"
+        @mouseenter="() => indicatorHandle(index, 'hover')">
         <div 
           :class="[
           'imax-carousel__indicator-button',
-          currentIndex === index && 'imax-carousel__indicator-current'
-        ]"></div>
+          currentIndex === index && 'imax-carousel__indicator-current']">
+        </div>
       </li>
     </ul>
 
@@ -72,9 +76,21 @@ export default {
       type: Number,
       default: 3000
     },
+    initialIndex: {
+      type: Number,
+      default: 0
+    },
     indicator: {
       type: Boolean,
       default: false
+    },
+    indicatorTrigger: {
+      type: String,
+      default: 'hover'
+    },
+    indicatorPosition: {
+      type: String,
+      default: 'inside'
     }
   },
   watch: {
@@ -95,12 +111,37 @@ export default {
     this.intervalTimer && clearInterval(this.intervalTimer);
   },
   mounted() {
+    this.checkoutIndex();
     this.updateItems();
     if (this.autoplay) {
       this.initInterval();
     }
   },
   methods: {
+    checkoutIndex(index = this.initialIndex) {
+      const itemsLength = this.$children.filter(child => {
+        return child.$options.name === 'ImCarouselItem';
+      }).length;
+
+      const currentIndex = index;
+      if (index > itemsLength - 1) currentIndex = 0;
+      if (index < 0) currentIndex = 0;
+      this.currentIndex = currentIndex;
+    },
+    indicatorHandle(index, handle) {
+      if (this.indicatorTrigger === 'none') return;
+
+      if (handle === 'click' && this.indicatorTrigger === 'hover') {
+        return;
+      }
+
+      if (handle === 'hover' && this.indicatorTrigger !== 'hover') {
+        return;
+      }
+
+      this.currentIndex = index;
+      this.updateItems();
+    },
     updateItems() {
       const items = this.$children.filter((child, index) => {
         const isChildren = child.$options.name === 'ImCarouselItem';
@@ -124,12 +165,12 @@ export default {
           }
         }
         this.clickArrowHandle(this.autoplayNextMode);
-        this.updateItems();
       }, isNum ? this.interval : 3000);
     },
     mouseActivityHandle(status) {
       if (status) this.intervalTimer && clearInterval(this.intervalTimer);
-      else this.initInterval();
+      
+      if (this.autoplay) this.initInterval();
 
       if (this.arrowShowType === 'always') return;
 
@@ -145,6 +186,16 @@ export default {
       }
       const addNum = type === 'left' ? -1 : 1;
       this.currentIndex += addNum;
+      this.updateItems();
+    },
+    prev() {
+      this.clickArrowHandle('left');
+    },
+    next() {
+      this.clickArrowHandle('right');
+    },
+    checkoutActiveItem(index = 0) {
+      this.checkoutIndex(index);
       this.updateItems();
     }
   }
