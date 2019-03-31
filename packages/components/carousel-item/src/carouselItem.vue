@@ -26,6 +26,7 @@ export default {
     updateHandle(itemsLength, currentIndex, index) {
       this.index = index;
       this.currentIndex = currentIndex;
+      
       if (currentIndex === index) {
         this.translateX = 0;
         return;
@@ -37,6 +38,7 @@ export default {
         this.translateX = 0 - offsetWidth;
         return;
       }
+
       if (index === 0 && currentIndex === itemsLength - 1) {
         this.translateX = offsetWidth;
         return;

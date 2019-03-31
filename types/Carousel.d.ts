@@ -9,4 +9,12 @@ export declare interface Carousel extends Vue {
   autoplay: boolean;
 
   interval: number;
+
+  initialIndex: number;
+
+  indicator: boolean;
+
+  indicatorTrigger: string;
+
+  indicatorPosition: string;
 }
