@@ -6,9 +6,8 @@
       webkitTransform: `translateX(${translateX})px`,
       transform: `translateX(${translateX}px)`,
       zIndex: currentIndex === index ? 2 : 1
-    }"
-  >
-    CarouselItem - {{ index }}
+    }">
+    <slot></slot>
   </div>
 </template>
 
