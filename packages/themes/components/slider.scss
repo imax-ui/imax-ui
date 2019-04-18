@@ -119,6 +119,7 @@ $show-input-width: 150px;
       $count-height: 33px;
 
       @include e(count) {
+        user-select: none;
         pointer-events: none;
         transition: 0.4s;
         opacity: 0;
@@ -202,8 +203,9 @@ $show-input-width: 150px;
     @include e(show-input-content) {
       $btn-size: 30px;
 
+      user-select: none;
       height: $btn-size;
-      width: 90px;
+      width: 80px;
       display: flex;
       align-items: center;
       text-align: center;
@@ -218,6 +220,7 @@ $show-input-width: 150px;
         align-items: center;
 
         >input {
+          font-size: 15px;
           width: 100%;
           cursor: pointer;
           text-align: center;
@@ -254,6 +257,7 @@ $show-input-width: 150px;
         height: $btn-size - 1px;
         background: #f5f6f7;
         line-height: 27px;
+        font-size: 16px;
 
         &:hover {
           color: $color-primary;

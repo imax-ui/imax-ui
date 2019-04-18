@@ -1,5 +1,6 @@
 <template>
   <div 
+    ref="imax-slider"
     :class="vertical && 'imax-slider--vertical'"
     class="imax-slider" 
   >
@@ -158,7 +159,7 @@ export default {
         return val;
       },
       set(val) {
-        if(!Number(val)) return;
+        if(typeof Number(val) !== 'number') return;
         this.count = val >= 100 ? 100 : 
           val <= 0 ? 0 : val;
       }
@@ -199,15 +200,19 @@ export default {
     }
   },
   mounted() {
+    this.$refs['imax-slider'].ondragstart = () => false;
     if(this.disabled) return;
     this.init();
   },
   methods: {
     init() {
       const { buttonWrapper, sliderContent } = this.$refs;
-      const { step, vertical } = this;
+      const { range, max, step, vertical } = this;
       const getCount = (client, start) => (client - start) / (vertical ? sliderContent.offsetHeight : sliderContent.offsetWidth) * 100;
-      let isMove, startX, startY, saveCount = 0;
+      let steps, isMove, startX, startY, saveCount = 0;
+
+      steps = step;
+      if(range) steps = 100 / max;
 
       buttonWrapper.onclick = (e) => {
         e.stopPropagation();
@@ -232,14 +237,15 @@ export default {
         if(this.count <= 0 && count <= 0) return this.count = 0;
         if(this.count >= 100 && count >= 0) return this.count = 100;
 
+        if(saveCount + count > 100) return;
         saveCount += count;
 
-        if(step > 1) {
-          if(saveCount >= this.count + step / 2 && count > 0) {
-            if(100 % step !== 0 && this.count == 100 - 100 % step) return;
-            count = step;
-          } else if(saveCount <= this.count - step / 2 && count < 0) {
-            count = -step;
+        if(steps > 1) {
+          if(saveCount >= this.count + steps / 2 && count > 0) {
+            if(100 % steps !== 0 && this.count == 100 - 100 % steps) return;
+            count = steps;
+          } else if(saveCount <= this.count - steps / 2 && count < 0) {
+            count = -steps;
           } else {
             count = 0;
           }
