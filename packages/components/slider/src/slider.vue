@@ -12,7 +12,7 @@
       @click="jumpCount"
     >
       <div
-        :style="vertical ? {height: count + '%'} : {width: count + '%'}"
+        :style="[vertical ? {height: count + '%'} : {width: count + '%'}, range && {background: 'none'}]"
         class="imax-slider__bar" 
       />
       <div 
@@ -36,7 +36,7 @@
       </div>
 
       <div 
-        v-if="showStops && step > 1"
+        v-if="showStops && saveStep > 1"
         class="imax-slider--show-stope"
       >
         <div 
@@ -46,8 +46,8 @@
             v-for="(item, i) in stopsList" 
             :key="item"
             :style="vertical 
-              ? {top: step * (i + 1) + '%', transform: 'translateY(-50%)'} 
-              : {left: step * (i + 1) + '%'}"
+              ? {top: saveStep * (i + 1) + '%', transform: 'translateY(-50%)'} 
+              : {left: saveStep * (i + 1) + '%'}"
           />
         </div>
       </div>
@@ -140,12 +140,14 @@ export default {
   data() {
     return {
       saveValue: this.value, 
-      countOpacityStyle: ''
+      countOpacityStyle: '',
+      saveStep: this.step,
     };
   },
   computed: {
     count: {
       get() {
+        if(typeof this.saveValue !== 'string') return this.saveValue;
         return this.saveValue >= 0 && this.saveValue <= 100 ? this.saveValue : 0;
       },
       set(val) {
@@ -154,6 +156,7 @@ export default {
     },
     formatCount: {
       get() {
+        if(typeof this.saveValue !== 'string') return this.saveValue;
         const val = Math.round(this.count);
         if(typeof this.formatTooltip === 'function') return this.formatTooltip(val);
         return val;
@@ -167,8 +170,16 @@ export default {
     formatCountPadding() {
       return this.formatCount.toString().length + 'px';
     },
+    steps: {
+      get() {
+        return this.saveStep;
+      },
+      set(val) {
+        this.saveStep = val;
+      }
+    },
     stopsList() {
-      return new Array(~~(100 / this.step) - (100 % this.step ? 0 : 1));
+      return new Array(~~(100 / this.saveStep) - (100 % this.saveStep ? 0 : 1));
     },
     inputSizeClass() {
       let className = 'imax-slider--input-',
@@ -207,12 +218,16 @@ export default {
   methods: {
     init() {
       const { buttonWrapper, sliderContent } = this.$refs;
-      const { range, max, step, vertical } = this;
+      const { range, max, saveStep, vertical } = this;
       const getCount = (client, start) => (client - start) / (vertical ? sliderContent.offsetHeight : sliderContent.offsetWidth) * 100;
       let steps, isMove, startX, startY, saveCount = 0;
 
-      steps = step;
-      if(range) steps = 100 / max;
+      steps = saveStep;
+
+      // 区间
+      if(range) {
+        this.steps = steps = 100 / max;
+      }
 
       buttonWrapper.onclick = (e) => {
         e.stopPropagation();
@@ -262,23 +277,23 @@ export default {
       });
     },
     changeCount(id) {
-      const { count, step } = this;
+      const { count, saveStep } = this;
       let num = 0;
       if(id) {
-        if(count == 100 || count == 100 - 100 % step) return;
-        num = step > 1 ? step : 1;
+        if(count == 100 || count == 100 - 100 % saveStep) return;
+        num = saveStep > 1 ? saveStep : 1;
       } else {
         if(count == 0) return;
-        num = step > 1 ? -step : -1;
+        num = saveStep > 1 ? -saveStep : -1;
       }
       this.count += num;
     },
     jumpCount(e) {
-      const { step, vertical } = this;
+      const { saveStep, vertical } = this;
       const { sliderContent } = this.$refs;
       let count = (e.pageX - sliderContent.offsetLeft) / sliderContent.offsetWidth * 100;
       if(vertical) count = 100 - (e.pageY - sliderContent.offsetTop) / sliderContent.offsetHeight * 100;
-      if(step > 1) count = Math.round(count / step) * step;
+      if(saveStep > 1) count = Math.round(count / saveStep) * saveStep;
       this.count = count;
     }
   }
