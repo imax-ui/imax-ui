@@ -17,7 +17,9 @@
     "lib": "vue-cli-service build --target lib --name imax-ui ./packages/index.js",
     "test": "karma start test/karma.conf.js --auto-watch",
     "new:component": "node build/new-component.js",
-    "build:entry": "node build/build-entry.js"
+    "build:entry": "node build/build-entry.js",
+    "docs": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.5",
@@ -46,9 +48,13 @@
     "sass-loader": "^7.1.0",
     "uppercamelcase": "^3.0.0",
     "vue": "^2.6.7",
-    "vue-template-compiler": "^2.6.7"
+    "vue-template-compiler": "^2.6.7",
+    "vuepress": "^0.14.11"
   },
   "peerDependencies": {
     "vue": "^2.6.7"
+  },
+  "dependencies": {
+    "markdown-it": "^8.4.2"
   }
 }

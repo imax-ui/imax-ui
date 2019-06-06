@@ -1,6 +1,6 @@
 <template>
   <i
-    class="iconfont"
+    class="iconfont imax-icon"
     :class="[`icon-${type}`]"
     :style="{fontSize, color}"
   />
